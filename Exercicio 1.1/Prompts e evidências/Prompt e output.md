@@ -1,4 +1,11 @@
-Que cenário rico! Vou criar uma proposta técnica visual e completa para esse projeto.Ótimo cenário. Vou criar uma proposta técnica visual e bem estruturada para a DB1 apresentar à NovaTech.Acima está a arquitetura completa — clique em qualquer bloco para aprofundar. Agora a proposta detalhada:
+
+### Envio do cenário
+
+Que cenário rico! Vou criar uma proposta técnica visual e completa para esse projeto.Ótimo cenário. Vou criar uma proposta técnica visual e bem estruturada para a DB1 apresentar à NovaTech.
+
+SVG anexado na etapa 1 - RAG arquitetura
+
+Acima está a arquitetura completa — clique em qualquer bloco para aprofundar. Agora a proposta detalhada:
 
 ---
 
@@ -133,7 +140,15 @@ O que você quer fazer com esse material? Algumas possibilidades:
 --- 
 
 ### faça um mapa dos temas abordados nos documentos
-Vou fazer dois diagramas: o primeiro mostra os 5 documentos e seus temas principais; o segundo destaca os pontos de conflito e lacunas — que são a parte mais crítica para o projeto RAG.Agora o segundo diagrama, focado exclusivamente nos pontos de atrito — conflitos entre documentos e lacunas sem cobertura formal:Os diagramas são clicáveis — cada bloco dispara uma pergunta relacionada ao tema para continuar a conversa.
+Vou fazer dois diagramas: o primeiro mostra os 5 documentos e seus temas principais; o segundo destaca os pontos de conflito e lacunas — que são a parte mais crítica para o projeto RAG.
+
+Anexo SVG etapa 1 - Mapa temas
+
+Agora o segundo diagrama, focado exclusivamente nos pontos de atrito — conflitos entre documentos e lacunas sem cobertura formal:
+
+Anexo SVG etapa 1 - conflitos lacunas
+
+Os diagramas são clicáveis — cada bloco dispara uma pergunta relacionada ao tema para continuar a conversa.
 
 Alguns pontos que valem destaque para o projeto:
 
@@ -150,7 +165,11 @@ Diagramas anexados na etapa 1
 
 ### Gere as hipóteses de possíveis problemas na documentação
 
-Vou analisar a documentação sistematicamente e gerar as hipóteses de problemas, organizadas por categoria e grau de risco.No total são **16 hipóteses** distribuídas em quatro categorias. Cada card é clicável para aprofundar o tema.
+Vou analisar a documentação sistematicamente e gerar as hipóteses de problemas, organizadas por categoria e grau de risco.
+
+Anexo SVG etapa 1 - hipoteses Parte 1 e 2
+
+No total são **16 hipóteses** distribuídas em quatro categorias. Cada card é clicável para aprofundar o tema.
 
 Alguns padrões que emergem da análise:
 
@@ -170,6 +189,8 @@ Arquivos visuais SVG anexados na etapa 1
 
 ### Fornecido os documentos completos PROC V1 e V2 e solicitado: Faça uma análise de inconsistência dos documentos
 
+Anexo SVG etapa 2 
+
 Use a calculadora para simular qualquer combinação de região e faixa de peso — ela mostra em tempo real quanto os dois documentos divergem para um mesmo frete.
 
 
@@ -188,6 +209,8 @@ rquivo visual SVG anexado na etapa 2
 ---
 
 ### Forneciido o documento completo FAQ e solicitado: Com base na visão geral e análise realizada dos arquivos PROC, cruze as inconsistências encontradas com as práticas informais do FAQ
+
+Anexo SVG etapa 3
 
 O cruzamento revela um padrão claro: o FAQ não é um documento ruim — é um documento que envelheceu de forma irregular. Algumas partes continuam precisas, outras ficaram presas na versão antiga das PROCs, e outras descrevem processos que nunca foram formalizados.
 

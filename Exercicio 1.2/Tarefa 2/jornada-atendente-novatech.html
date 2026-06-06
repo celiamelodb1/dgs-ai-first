@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jornada do Atendente — NovaTech + Assistente de IA</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #f1f5f9;
+  color: #0f172a;
+  padding: 36px 32px;
+  min-width: 1160px;
+}
+
+/* ── HEADER ─────────────────────────────────────── */
+.page-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+.company-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 5px 16px;
+  border-radius: 20px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  margin-bottom: 14px;
+}
+.page-header h1 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+.page-header p {
+  font-size: 13px;
+  color: #64748b;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* ── CONFIDENCE LEGEND ──────────────────────────── */
+.legend-bar {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1.5px solid;
+}
+.leg-green { background: #f0fdf4; border-color: #86efac; color: #15803d; }
+.leg-amber { background: #fffbeb; border-color: #fcd34d; color: #92400e; }
+.leg-red   { background: #fff1f2; border-color: #fda4af; color: #9f1239; }
+.leg-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+
+/* ── SWIMLANE ───────────────────────────────────── */
+.swimlane { margin-bottom: 4px; border-radius: 14px; overflow: hidden; }
+
+.lane-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 22px;
+}
+.lane-header h2 { font-size: 13.5px; font-weight: 700; color: #fff; }
+.lane-header .sub { font-size: 11.5px; color: rgba(255,255,255,.75); margin-top: 1px; }
+.lane-icon { font-size: 22px; flex-shrink: 0; }
+
+.lane-body {
+  background: #fff;
+  padding: 22px 18px 18px;
+  border: 1.5px solid;
+  border-top: none;
+  border-radius: 0 0 14px 14px;
+}
+
+/* ── STEPS ROW ──────────────────────────────────── */
+.steps-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+/* Step card */
+.sc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 152px;
+  min-width: 152px;
+  text-align: center;
+}
+.snode {
+  width: 136px;
+  padding: 11px 10px 10px;
+  border-radius: 10px;
+  border: 2px solid;
+}
+.snum {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.semoji { font-size: 22px; display: block; margin-bottom: 5px; }
+.slabel {
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 4px;
+}
+.sdesc {
+  font-size: 9.5px;
+  line-height: 1.5;
+  color: #475569;
+}
+.stag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 9px;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+/* Step annotation below node */
+.sanno {
+  margin-top: 6px;
+  width: 136px;
+  background: #f8fafc;
+  border: 1.5px dashed #cbd5e1;
+  border-radius: 7px;
+  padding: 7px 9px;
+  font-size: 9.5px;
+  color: #475569;
+  text-align: left;
+  line-height: 1.5;
+}
+.sanno strong {
+  display: block;
+  font-size: 8.5px;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+  color: #94a3b8;
+  margin-bottom: 2px;
+}
+
+/* Arrow between steps */
+.sarr {
+  display: flex;
+  align-items: center;
+  padding: 0 2px;
+  margin-top: 26px;
+  flex-shrink: 0;
+  font-size: 18px;
+}
+
+/* ── DECISION DIAMOND ───────────────────────────── */
+.dc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 152px;
+  min-width: 152px;
+  text-align: center;
+}
+.diam-wrap {
+  position: relative;
+  width: 104px;
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.diam-shape {
+  position: absolute;
+  width: 72px;
+  height: 72px;
+  border: 2.5px solid;
+  border-radius: 6px;
+  transform: rotate(45deg);
+}
+.diam-text {
+  position: relative;
+  z-index: 2;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.dnum {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* ── COLOR TOKENS ───────────────────────────────── */
+/* Main: Blue */
+.hdr-main { background: linear-gradient(135deg, #1e40af, #3b82f6); }
+.bd-main  { border-color: #bfdbfe; }
+.nd-main  { border-color: #93c5fd; background: #eff6ff; }
+.nm-main  { color: #1d4ed8; }
+.tg-main  { background: #dbeafe; color: #1e40af; }
+.ar-main  { color: #60a5fa; }
+
+/* Jornada 2: Amber */
+.hdr-j2 { background: linear-gradient(135deg, #b45309, #f59e0b); }
+.bd-j2   { border-color: #fde68a; }
+.nd-j2   { border-color: #fcd34d; background: #fffbeb; }
+.nm-j2   { color: #b45309; }
+.tg-j2   { background: #fef3c7; color: #92400e; }
+.ar-j2   { color: #fbbf24; }
+
+/* Jornada 3: Rose */
+.hdr-j3 { background: linear-gradient(135deg, #9f1239, #f43f5e); }
+.bd-j3   { border-color: #fecdd3; }
+.nd-j3   { border-color: #fda4af; background: #fff1f2; }
+.nm-j3   { color: #be185d; }
+.tg-j3   { background: #ffe4e6; color: #9f1239; }
+.ar-j3   { color: #fb7185; }
+
+/* Decision: Purple */
+.nd-dec  { border-color: #a78bfa; background: #faf5ff; }
+.nm-dec  { color: #7c3aed; }
+
+/* Success: Green */
+.nd-ok   { border-color: #4ade80; background: #f0fdf4; }
+.nm-ok   { color: #16a34a; }
+.tg-ok   { background: #dcfce7; color: #15803d; }
+
+/* ── BRIDGE BETWEEN FLOWS ───────────────────────── */
+.bridge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 10px 0;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+.bridge-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+.bridge-arrow { font-size: 22px; }
+
+/* ── EVALUATION HINT ────────────────────────────── */
+.eval-hint {
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: #f8fafc;
+  border: 1.5px dashed #e2e8f0;
+  border-radius: 8px;
+  font-size: 11px;
+  color: #475569;
+  line-height: 1.7;
+}
+.eval-hint b { color: #0f172a; }
+
+/* ── EXCEPTION PANEL ────────────────────────────── */
+.exc-panel {
+  background: #fff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 20px 22px;
+  margin-top: 16px;
+}
+.exc-panel h3 {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #0f172a;
+}
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.pill {
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 10.5px;
+  font-weight: 500;
+  border: 1.5px solid;
+}
+.pill-red  { background: #fff1f2; border-color: #fecdd3; color: #9f1239; }
+.pill-amb  { background: #fffbeb; border-color: #fde68a; color: #92400e; }
+.pill-blu  { background: #eff6ff; border-color: #bfdbfe; color: #1e40af; }
+.pill-grn  { background: #f0fdf4; border-color: #bbf7d0; color: #15803d; }
+.pill-pur  { background: #faf5ff; border-color: #ddd6fe; color: #6d28d9; }
+
+/* ── FOOTER ─────────────────────────────────────── */
+.footer {
+  text-align: center;
+  margin-top: 28px;
+  font-size: 10.5px;
+  color: #94a3b8;
+}
+
+@media print {
+  body { padding: 16px; background: #fff; min-width: unset; }
+  .swimlane { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="page-header">
+  <div class="company-badge">🚛 NovaTech × DB1 &nbsp;·&nbsp; Assistente de IA para Atendimento</div>
+  <h1>Jornada do Atendente com Assistente de IA</h1>
+  <p>Mapa completo de fluxo — desde o recebimento do chamado até a resposta ao cliente,<br>incluindo desvios por baixa confiança e sinalização de erros na base documental.</p>
+</div>
+
+<!-- CONFIDENCE LEGEND -->
+<div class="legend-bar">
+  <div class="legend-item leg-green">
+    <div class="leg-dot" style="background:#22c55e"></div>
+    ✓ Nível Confirmado — fonte normativa formal, sem conflito
+  </div>
+  <div class="legend-item leg-amber">
+    <div class="leg-dot" style="background:#f59e0b"></div>
+    ⚠ Nível Atenção — conflito de versões ou cobertura parcial
+  </div>
+  <div class="legend-item leg-red">
+    <div class="leg-dot" style="background:#f43f5e"></div>
+    ✗ Sem Cobertura Segura — gap documental ou apenas FAQ informal
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     FLUXO PRINCIPAL
+══════════════════════════════════════════ -->
+<div class="swimlane">
+  <div class="lane-header hdr-main">
+    <span class="lane-icon">🔵</span>
+    <div>
+      <h2>Fluxo Principal do Atendente — NovaTech com Assistente de IA</h2>
+      <div class="sub">Jornada padrão · chamado recebido → resposta ao cliente com fonte rastreável</div>
+    </div>
+  </div>
+  <div class="lane-body bd-main">
+    <div class="steps-row">
+
+      <!-- P1 -->
+      <div class="sc">
+        <div class="snode nd-main">
+          <div class="snum nm-main">Passo 1</div>
+          <span class="semoji">📥</span>
+          <div class="slabel">Receber e contextualizar o chamado</div>
+          <div class="sdesc">Azure DevOps via Teams. Verifica tier do cliente e SLA vigente. Lê a descrição do problema.</div>
+          <span class="stag tg-main">Gold · Silver · Standard</span>
+        </div>
+        <div class="sanno">
+          <strong>SLA de resposta</strong>
+          Gold: 2h &nbsp;·&nbsp; Silver: 4h<br>Standard: 8h
+        </div>
+      </div>
+
+      <div class="sarr ar-main">→</div>
+
+      <!-- P2 -->
+      <div class="sc">
+        <div class="snode nd-main">
+          <div class="snum nm-main">Passo 2</div>
+          <span class="semoji">🏷️</span>
+          <div class="slabel">Classificar a dúvida</div>
+          <div class="sdesc">Prazo · Cálculo de frete · Devolução · SLA contratual · Procedimento de reclamação</div>
+        </div>
+        <div class="sanno">
+          <strong>define</strong>
+          Qual documentação será consultada na IA
+        </div>
+      </div>
+
+      <div class="sarr ar-main">→</div>
+
+      <!-- P3 -->
+      <div class="sc">
+        <div class="snode nd-main">
+          <div class="snum nm-main">Passo 3</div>
+          <span class="semoji">🤖</span>
+          <div class="slabel">Consultar o Assistente de IA</div>
+          <div class="sdesc">Pergunta em linguagem natural no Teams. IA busca em SharePoint, Confluence e planilhas de rede.</div>
+          <span class="stag tg-main">⏱ retorno &lt; 30s</span>
+        </div>
+        <div class="sanno">
+          <strong>IA retorna</strong>
+          Resposta + trecho + nome do doc + versão + data
+        </div>
+      </div>
+
+      <div class="sarr ar-main">→</div>
+
+      <!-- DECISION -->
+      <div class="dc">
+        <div class="diam-wrap">
+          <div class="diam-shape nd-dec"></div>
+          <div class="diam-text nm-dec">Avaliar<br>resposta</div>
+        </div>
+        <div class="dnum nm-dec">Passo 4</div>
+      </div>
+
+      <div class="sarr ar-main">→</div>
+
+      <!-- P5 -->
+      <div class="sc">
+        <div class="snode nd-main">
+          <div class="snum nm-main">Passo 5</div>
+          <span class="semoji">⚡</span>
+          <div class="slabel">Tratar exceção</div>
+          <div class="sdesc">Escala para área competente: Gestão de Riscos, Comercial ou Jurídico. Registra flag no chamado.</div>
+          <span class="stag tg-main">quando aplicável</span>
+        </div>
+        <div class="sanno">
+          <strong>acionar</strong>
+          Ramal 4500 · sinistros@<br>novatech.com.br
+        </div>
+      </div>
+
+      <div class="sarr ar-main">→</div>
+
+      <!-- P6 -->
+      <div class="sc">
+        <div class="snode nd-ok">
+          <div class="snum nm-ok">Passo 6</div>
+          <span class="semoji">✅</span>
+          <div class="slabel">Responder cliente e encerrar</div>
+          <div class="sdesc">Responde com linguagem adaptada. Registra fonte no chamado. Encerra ou encaminha. SLA atualizado.</div>
+          <span class="stag tg-ok">fonte registrada</span>
+        </div>
+      </div>
+
+    </div><!-- /steps-row -->
+
+    <!-- Evaluation hint -->
+    <div class="eval-hint">
+      <b>Decisão no Passo 4:</b> &nbsp;
+      <span style="color:#15803d; font-weight:700">✓ Confiança alta</span> → segue para Passo 5 / 6 &nbsp;|&nbsp;
+      <span style="color:#92400e; font-weight:700">⚠ Baixa confiança ou divergência</span> → aciona <b>Jornada 2</b> abaixo &nbsp;|&nbsp;
+      <span style="color:#9f1239; font-weight:700">✗ Resposta errada · desatualizada · incompleta</span> → aciona <b>Jornada 3</b> abaixo
+    </div>
+  </div>
+</div><!-- /swimlane main -->
+
+<!-- BRIDGE 1 -->
+<div class="bridge">
+  <div class="bridge-item">
+    <span class="bridge-arrow" style="color:#f59e0b">↓</span>
+    <span style="color:#92400e; font-size:11px; font-weight:700">⚠ Baixa confiança ou divergência do atendente</span>
+  </div>
+  <div class="bridge-item">
+    <span class="bridge-arrow" style="color:#f43f5e">↓</span>
+    <span style="color:#9f1239; font-size:11px; font-weight:700">✗ IA responde com confiança mas atendente detecta erro</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     JORNADA 2
+══════════════════════════════════════════ -->
+<div class="swimlane">
+  <div class="lane-header hdr-j2">
+    <span class="lane-icon">⚠️</span>
+    <div>
+      <h2>Jornada 2 — Tratamento de Respostas de Baixa Confiança ou Divergência com a IA</h2>
+      <div class="sub">Cenário A: IA sinaliza incerteza &nbsp;·&nbsp; Cenário B: atendente discorda com base em experiência ou informação de colega</div>
+    </div>
+  </div>
+  <div class="lane-body bd-j2">
+    <div class="steps-row">
+
+      <!-- J2-P1 -->
+      <div class="sc">
+        <div class="snode nd-j2">
+          <div class="snum nm-j2">Passo 1</div>
+          <span class="semoji">🔍</span>
+          <div class="slabel">Identificar o motivo da incerteza</div>
+          <div class="sdesc">Gap documental · Conflito entre versões · Cobertura parcial · Conhecimento tácito divergente</div>
+        </div>
+        <div class="sanno">
+          <strong>exemplos reais</strong>
+          PROC-042 v1 × v2<br>FAQ sem validação<br>Carga perigosa sem doc
+        </div>
+      </div>
+
+      <div class="sarr ar-j2">→</div>
+
+      <!-- J2-P2 -->
+      <div class="sc">
+        <div class="snode nd-j2">
+          <div class="snum nm-j2">Passo 2</div>
+          <span class="semoji">🚫</span>
+          <div class="slabel">Não responder ao cliente ainda</div>
+          <div class="sdesc">Registra pendência nas notas internas: motivo da incerteza. Chamado permanece aberto.</div>
+          <span class="stag tg-j2">obrigatório</span>
+        </div>
+      </div>
+
+      <div class="sarr ar-j2">→</div>
+
+      <!-- J2-P3 -->
+      <div class="sc">
+        <div class="snode nd-j2">
+          <div class="snum nm-j2">Passo 3</div>
+          <span class="semoji">✏️</span>
+          <div class="slabel">Reformular a pergunta ao assistente</div>
+          <div class="sdesc">Especificar documento e versão. Restringir período. Separar perguntas. Pedir lista de fontes.</div>
+        </div>
+        <div class="sanno">
+          <strong>se resolver</strong>
+          Retorna ao Passo 4 do Fluxo Principal
+        </div>
+      </div>
+
+      <div class="sarr ar-j2">→</div>
+
+      <!-- J2-P4 -->
+      <div class="sc">
+        <div class="snode nd-j2">
+          <div class="snum nm-j2">Passo 4</div>
+          <span class="semoji">👤</span>
+          <div class="slabel">Acionar fonte humana competente</div>
+          <div class="sdesc">Gap → área do tema ausente · Conflito → área autora do doc mais recente · Tácito → supervisor</div>
+          <span class="stag tg-j2">orientação por escrito</span>
+        </div>
+        <div class="sanno">
+          <strong>escala por tipo</strong>
+          Sinistros · Comercial<br>Supervisor · Compliance
+        </div>
+      </div>
+
+      <div class="sarr ar-j2">→</div>
+
+      <!-- J2-P5 -->
+      <div class="sc">
+        <div class="snode nd-j2">
+          <div class="snum nm-j2">Passo 5</div>
+          <span class="semoji">💬</span>
+          <div class="slabel">Responder com orientação validada</div>
+          <div class="sdesc">Registra orientação recebida no chamado antes de responder. Não expõe conflito interno ao cliente.</div>
+        </div>
+      </div>
+
+      <div class="sarr ar-j2">→</div>
+
+      <!-- J2-P6 -->
+      <div class="sc">
+        <div class="snode nd-j2">
+          <div class="snum nm-j2">Passo 6</div>
+          <span class="semoji">📋</span>
+          <div class="slabel">Registrar caso para melhoria contínua</div>
+          <div class="sdesc">Formulário de feedback: pergunta · motivo · área acionada · orientação · sugestão de ação documental.</div>
+          <span class="stag tg-j2">obrigatório</span>
+        </div>
+        <div class="sanno">
+          <strong>alimenta</strong>
+          Revisão mensal das 3 áreas: Operações, Compliance, Comercial
+        </div>
+      </div>
+
+    </div><!-- /steps-row j2 -->
+  </div>
+</div><!-- /swimlane j2 -->
+
+<!-- BRIDGE 2 -->
+<div class="bridge" style="justify-content:center; gap:0; padding: 8px 0;">
+  <div class="bridge-item">
+    <span class="bridge-arrow" style="color:#f43f5e">↓</span>
+    <span style="color:#9f1239; font-size:11px; font-weight:700">✗ IA respondeu com segurança mas o conteúdo está errado, desatualizado ou incompleto</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     JORNADA 3
+══════════════════════════════════════════ -->
+<div class="swimlane">
+  <div class="lane-header hdr-j3">
+    <span class="lane-icon">✗</span>
+    <div>
+      <h2>Jornada 3 — Sinalização de Resposta Errada, Desatualizada ou Incompleta ao Assistente</h2>
+      <div class="sub">Ativada quando a IA responde com aparente segurança e o atendente é quem detecta o problema factual</div>
+    </div>
+  </div>
+  <div class="lane-body bd-j3">
+    <div class="steps-row">
+
+      <!-- J3-P1 -->
+      <div class="sc">
+        <div class="snode nd-j3">
+          <div class="snum nm-j3">Passo 1</div>
+          <span class="semoji">🔎</span>
+          <div class="slabel">Caracterizar o tipo de problema</div>
+          <div class="sdesc">Errado: fato incorreto vs. doc citado · Desatualizado: versão obsoleta usada · Incompleto: exceção omitida</div>
+        </div>
+        <div class="sanno">
+          <strong>exemplo real</strong>
+          IA usa PROC-042 v1<br>(Norte 1,6) em vez de<br>v2 (Norte 1,8)
+        </div>
+      </div>
+
+      <div class="sarr ar-j3">→</div>
+
+      <!-- J3-P2 -->
+      <div class="sc">
+        <div class="snode nd-j3">
+          <div class="snum nm-j3">Passo 2</div>
+          <span class="semoji">⛔</span>
+          <div class="slabel">Não usar a resposta</div>
+          <div class="sdesc">Interrompe no Passo 4 do fluxo principal. Registra nas notas internas: "resposta problemática — pendente".</div>
+          <span class="stag tg-j3">cliente protegido</span>
+        </div>
+      </div>
+
+      <div class="sarr ar-j3">→</div>
+
+      <!-- J3-P3 -->
+      <div class="sc">
+        <div class="snode nd-j3">
+          <div class="snum nm-j3">Passo 3</div>
+          <span class="semoji">📂</span>
+          <div class="slabel">Localizar a fonte correta</div>
+          <div class="sdesc">POL / PROC / SLA no SharePoint. Planilhas de rede (verificar data). Confluence. FAQ <b>não é válido</b> aqui.</div>
+        </div>
+        <div class="sanno">
+          <strong>prioridade</strong>
+          1. Documentos normativos<br>2. Planilhas mensais<br>3. Confluence
+        </div>
+      </div>
+
+      <div class="sarr ar-j3">→</div>
+
+      <!-- J3-P4 -->
+      <div class="sc">
+        <div class="snode nd-j3">
+          <div class="snum nm-j3">Passo 4</div>
+          <span class="semoji">🚩</span>
+          <div class="slabel">Registrar feedback no assistente</div>
+          <div class="sdesc">Tipo · O que IA disse vs. correto · Doc correto (nome, versão, seção) · Doc problemático · Impacto no chamado</div>
+          <span class="stag tg-j3">formulário estruturado</span>
+        </div>
+        <div class="sanno">
+          <strong>não texto livre</strong>
+          Campos obrigatórios para triagem automática
+        </div>
+      </div>
+
+      <div class="sarr ar-j3">→</div>
+
+      <!-- J3-P5 -->
+      <div class="sc">
+        <div class="snode nd-j3">
+          <div class="snum nm-j3">Passo 5</div>
+          <span class="semoji">✉️</span>
+          <div class="slabel">Responder com informação correta</div>
+          <div class="sdesc">Usa a fonte localizada no Passo 3. Registra doc + versão no chamado. Não menciona erro ao cliente.</div>
+        </div>
+      </div>
+
+      <div class="sarr ar-j3">→</div>
+
+      <!-- J3-P6 -->
+      <div class="sc">
+        <div class="snode nd-j3">
+          <div class="snum nm-j3">Passo 6</div>
+          <span class="semoji">🔄</span>
+          <div class="slabel">Acompanhar resolução na base</div>
+          <div class="sdesc">Equipe de projeto processa: reindexação · arquivar obsoleto · criar doc formal · corrigir chunking</div>
+          <span class="stag tg-j3">atendente notificado</span>
+        </div>
+        <div class="sanno">
+          <strong>ciclo fechado</strong>
+          Atendente recebe notificação quando problema for resolvido na base
+        </div>
+      </div>
+
+    </div><!-- /steps-row j3 -->
+  </div>
+</div><!-- /swimlane j3 -->
+
+<!-- ══════════════════════════════════════════
+     EXCEPTION PANEL
+══════════════════════════════════════════ -->
+<div class="exc-panel">
+  <h3>⚡ Condições de desvio e invariantes do sistema</h3>
+  <div class="pills">
+    <div class="pill pill-red">🚛 Carga perigosa (classes 1–6 ANTT) → Gestão de Riscos ramal 4500, não processo padrão de devolução</div>
+    <div class="pill pill-red">📦 Carga ainda em trânsito → PROC-088 (Interceptação de Carga), não POL-001</div>
+    <div class="pill pill-red">💥 Incidente crítico Gold → SLA não pausa fora do horário comercial · tratamento imediato e paralelo</div>
+    <div class="pill pill-amb">📅 PROC-042 v1 → chamados anteriores a 01/12/2023 em processamento &nbsp;·&nbsp; v2 → chamados a partir de 01/12/2023</div>
+    <div class="pill pill-amb">⏰ Devolução após 7 dias úteis → encaminhar ao Comercial para negociação caso a caso</div>
+    <div class="pill pill-amb">💰 Desconto no frete → atendente não tem autonomia · PROC-042 v2: ≥8 fretes/mês = 5% · ≥15 = 10%</div>
+    <div class="pill pill-blu">💎 Cliente menciona tier "Platinum" → tier inexistente desde 2022 · solicitar número do contrato</div>
+    <div class="pill pill-blu">🔒 Orientação verbal não é registrável → solicitar confirmação por escrito antes de responder</div>
+    <div class="pill pill-grn">📝 FAQ informal → nunca usar como fonte definitiva sem validação prévia da área responsável</div>
+    <div class="pill pill-grn">🎯 O atendente decide sempre — o assistente de IA é ferramenta de apoio, não autoridade</div>
+    <div class="pill pill-pur">🔗 Toda resposta ao cliente exige fonte rastreável registrada no chamado — sem exceção</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  DB1 &nbsp;·&nbsp; Projeto NovaTech &nbsp;·&nbsp; Assistente de IA para Atendimento &nbsp;·&nbsp; 2024
+  &nbsp;&nbsp;|&nbsp;&nbsp;
+  Todas as jornadas exigem fonte documental rastreável registrada no chamado
+</div>
+
+</body>
+</html>
