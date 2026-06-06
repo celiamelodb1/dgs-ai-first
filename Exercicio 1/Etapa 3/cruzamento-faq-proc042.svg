@@ -1,0 +1,367 @@
+<svg width="1200" viewBox="0 0 1200 1320" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Cruzamento FAQ × PROC-042 — inconsistências e práticas informais</title>
+  <desc>Análise cruzada entre as práticas informais do FAQ-Atendimento e as inconsistências identificadas nos documentos PROC-042 v1 e v2, SLA-2024 e POL-001. Nove itens do FAQ avaliados por status, risco RAG e recomendação de indexação.</desc>
+
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="1320" fill="#f9f8f5"/>
+
+  <!-- Título -->
+  <text x="600" y="36" text-anchor="middle" font-size="17" font-weight="700" fill="#1a1a18">Cruzamento FAQ-Atendimento × PROC-042 v1/v2</text>
+  <text x="600" y="56" text-anchor="middle" font-size="11" fill="#888780">Práticas informais vs. documentação formal · 9 itens avaliados · status, risco RAG e recomendação de indexação</text>
+
+  <!-- Resumo numérico -->
+  <rect x="20" y="70" width="272" height="60" rx="8" fill="#FCEBEB" stroke="#E24B4A" stroke-width="0.5"/>
+  <text x="156" y="92" text-anchor="middle" font-size="28" font-weight="700" fill="#E24B4A">3</text>
+  <text x="156" y="112" text-anchor="middle" font-size="11" fill="#A32D2D">Contradições diretas</text>
+  <text x="156" y="124" text-anchor="middle" font-size="10" fill="#A32D2D">FAQ afirma o oposto do PROC</text>
+
+  <rect x="308" y="70" width="272" height="60" rx="8" fill="#FAEEDA" stroke="#EF9F27" stroke-width="0.5"/>
+  <text x="444" y="92" text-anchor="middle" font-size="28" font-weight="700" fill="#EF9F27">2</text>
+  <text x="444" y="112" text-anchor="middle" font-size="11" fill="#854F0B">Versão errada/desatualizada</text>
+  <text x="444" y="124" text-anchor="middle" font-size="10" fill="#854F0B">FAQ cita dados revogados</text>
+
+  <rect x="596" y="70" width="272" height="60" rx="8" fill="#E6F1FB" stroke="#378ADD" stroke-width="0.5"/>
+  <text x="732" y="92" text-anchor="middle" font-size="28" font-weight="700" fill="#378ADD">2</text>
+  <text x="732" y="112" text-anchor="middle" font-size="11" fill="#185FA5">Lacuna sem PROC formal</text>
+  <text x="732" y="124" text-anchor="middle" font-size="10" fill="#185FA5">FAQ é única fonte existente</text>
+
+  <rect x="884" y="70" width="296" height="60" rx="8" fill="#EAF3DE" stroke="#1D9E75" stroke-width="0.5"/>
+  <text x="1032" y="92" text-anchor="middle" font-size="28" font-weight="700" fill="#1D9E75">2</text>
+  <text x="1032" y="112" text-anchor="middle" font-size="11" fill="#3B6D11">Alinhados com documentação</text>
+  <text x="1032" y="124" text-anchor="middle" font-size="10" fill="#3B6D11">Conteúdo confirmado pelo PROC/SLA</text>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- SEÇÃO 1: CONTRADIÇÕES DIRETAS -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <rect x="20" y="148" width="1160" height="24" rx="5" fill="#E24B4A"/>
+  <text x="600" y="160" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">Contradições diretas — FAQ afirma algo que os PROC contradizem (3 itens)</text>
+
+  <!-- CARD: Item 45 -->
+  <rect x="20" y="180" width="1160" height="118" rx="8" fill="#fff" stroke="#E24B4A" stroke-width="0.8"/>
+  <rect x="20" y="180" width="5" height="118" rx="2" fill="#E24B4A"/>
+
+  <rect x="34" y="188" width="76" height="16" rx="8" fill="#FCEBEB"/>
+  <text x="72" y="199" text-anchor="middle" font-size="10" font-weight="600" fill="#A32D2D">FAQ item 45</text>
+  <rect x="118" y="188" width="130" height="16" rx="8" fill="#E24B4A"/>
+  <text x="183" y="199" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Contradição direta</text>
+
+  <text x="34" y="220" font-size="12" font-weight="600" fill="#1a1a18">Desconto por volume — FAQ usa threshold da v1, ignorando completamente a v2</text>
+
+  <rect x="34" y="232" width="556" height="56" rx="6" fill="#FAEEDA"/>
+  <text x="42" y="248" font-size="10" font-weight="600" fill="#854F0B">FAQ (prática atual do time)</text>
+  <text x="42" y="264" font-size="10" fill="#633806">"Para clientes com mais de 10 fretes especiais por mês,</text>
+  <text x="42" y="277" font-size="10" fill="#633806">existe desconto automático na tabela (veja PROC-042)."</text>
+
+  <rect x="608" y="232" width="556" height="56" rx="6" fill="#EAF3DE"/>
+  <text x="616" y="248" font-size="10" font-weight="600" fill="#3B6D11">PROC-042 v2 — nov/2023 (vigente)</text>
+  <text x="616" y="264" font-size="10" fill="#27500A">5% a partir de 8 fretes/mês · 10% acima de 15 fretes/mês</text>
+  <text x="616" y="277" font-size="10" fill="#27500A">Acima disso: aprovação da Diretoria Comercial.</text>
+
+  <rect x="34" y="293" width="1140" height="2" fill="#f1efe8"/>
+  <text x="34" y="308" font-size="10" fill="#A32D2D">Veredicto: FAQ desatualizado — cita regra da v1 (&gt;10 fretes, sem %). Cliente com 9 fretes/mês tem direito a 5% pela v2, mas o atendente seguindo o FAQ nega esse benefício. Já está acontecendo hoje.</text>
+
+  <rect x="1060" y="186" width="112" height="16" rx="8" fill="#E24B4A"/>
+  <text x="1116" y="197" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Risco RAG: Crítico</text>
+  <rect x="1060" y="208" width="112" height="16" rx="8" fill="#FCEBEB"/>
+  <text x="1116" y="219" text-anchor="middle" font-size="10" font-weight="600" fill="#A32D2D">Nao indexar</text>
+
+  <!-- CARD: Item 8 -->
+  <rect x="20" y="308" width="1160" height="118" rx="8" fill="#fff" stroke="#E24B4A" stroke-width="0.8"/>
+  <rect x="20" y="308" width="5" height="118" rx="2" fill="#E24B4A"/>
+
+  <rect x="34" y="316" width="66" height="16" rx="8" fill="#FCEBEB"/>
+  <text x="67" y="327" text-anchor="middle" font-size="10" font-weight="600" fill="#A32D2D">FAQ item 8</text>
+  <rect x="108" y="316" width="156" height="16" rx="8" fill="#E24B4A"/>
+  <text x="186" y="327" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Contradição estrutural</text>
+
+  <text x="34" y="348" font-size="12" font-weight="600" fill="#1a1a18">Frete especial — FAQ orienta usar v2 "na dúvida" sem que v1 tenha sido revogada</text>
+
+  <rect x="34" y="360" width="556" height="56" rx="6" fill="#FAEEDA"/>
+  <text x="42" y="376" font-size="10" font-weight="600" fill="#854F0B">FAQ (prática atual do time)</text>
+  <text x="42" y="392" font-size="10" fill="#633806">"Na dúvida, use a mais recente (v2), mas se o cliente</text>
+  <text x="42" y="405" font-size="10" fill="#633806">reclamar, pode ser que o contrato esteja na tabela antiga."</text>
+
+  <rect x="608" y="360" width="556" height="56" rx="6" fill="#E6F1FB"/>
+  <text x="616" y="376" font-size="10" font-weight="600" fill="#185FA5">Realidade documental</text>
+  <text x="616" y="392" font-size="10" fill="#0C447C">v1 NUNCA foi marcada como obsoleta. Cláusula transitória</text>
+  <text x="616" y="405" font-size="10" fill="#0C447C">da v2 venceu em dez/2023. Sem decisão formal registrada.</text>
+
+  <rect x="34" y="421" width="1140" height="2" fill="#f1efe8"/>
+  <text x="34" y="436" font-size="10" fill="#A32D2D">Veredicto: heurística informal sem política oficial. Atendente toma decisão de negócio sem autorização formal — e o cliente que reclamar tem duas versões do PROC para citar em seu favor.</text>
+
+  <rect x="1060" y="314" width="112" height="16" rx="8" fill="#E24B4A"/>
+  <text x="1116" y="325" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Risco RAG: Crítico</text>
+  <rect x="1060" y="336" width="112" height="16" rx="8" fill="#FCEBEB"/>
+  <text x="1116" y="347" text-anchor="middle" font-size="10" font-weight="600" fill="#A32D2D">Nao indexar</text>
+
+  <!-- CARD: Item 32 -->
+  <rect x="20" y="436" width="1160" height="118" rx="8" fill="#fff" stroke="#E24B4A" stroke-width="0.8"/>
+  <rect x="20" y="436" width="5" height="118" rx="2" fill="#E24B4A"/>
+
+  <rect x="34" y="444" width="68" height="16" rx="8" fill="#FCEBEB"/>
+  <text x="68" y="455" text-anchor="middle" font-size="10" font-weight="600" fill="#A32D2D">FAQ item 32</text>
+  <rect x="110" y="444" width="150" height="16" rx="8" fill="#E24B4A"/>
+  <text x="185" y="455" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Sem amparo normativo</text>
+
+  <text x="34" y="476" font-size="12" font-weight="600" fill="#1a1a18">Frete expresso para carga perigosa — FAQ afirma possível, sem nenhum PROC que sustente</text>
+
+  <rect x="34" y="488" width="556" height="56" rx="6" fill="#FAEEDA"/>
+  <text x="42" y="504" font-size="10" font-weight="600" fill="#854F0B">FAQ (prática atual do time)</text>
+  <text x="42" y="520" font-size="10" fill="#633806">"Sim, mas precisa de autorização do Compliance e</text>
+  <text x="42" y="533" font-size="10" fill="#633806">documentação ANTT atualizada. Na prática, ~2 dias."</text>
+
+  <rect x="608" y="488" width="556" height="56" rx="6" fill="#E6F1FB"/>
+  <text x="616" y="504" font-size="10" font-weight="600" fill="#185FA5">PROC-042 v1 e v2</text>
+  <text x="616" y="520" font-size="10" fill="#0C447C">Ambas remetem carga perigosa &gt;500kg à PROC-043.</text>
+  <text x="616" y="533" font-size="10" fill="#0C447C">Nenhuma menciona frete expresso ou autorização Compliance.</text>
+
+  <rect x="34" y="549" width="1140" height="2" fill="#f1efe8"/>
+  <text x="34" y="564" font-size="10" fill="#A32D2D">Veredicto: prática informal sem documento formal de respaldo. Se algo der errado, a NovaTech não tem política para amparar a decisão tomada pelo atendente com base nessa orientação.</text>
+
+  <rect x="1060" y="442" width="112" height="16" rx="8" fill="#E24B4A"/>
+  <text x="1116" y="453" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Risco RAG: Crítico</text>
+  <rect x="1060" y="464" width="112" height="16" rx="8" fill="#FCEBEB"/>
+  <text x="1116" y="475" text-anchor="middle" font-size="10" font-weight="600" fill="#A32D2D">Nao indexar</text>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- SEÇÃO 2: VERSÃO ERRADA -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <rect x="20" y="570" width="1160" height="24" rx="5" fill="#BA7517"/>
+  <text x="600" y="582" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">Uso de versão errada ou desatualizada — FAQ cita dados defasados (2 itens)</text>
+
+  <!-- CARD: Item 27 -->
+  <rect x="20" y="602" width="1160" height="110" rx="8" fill="#fff" stroke="#EF9F27" stroke-width="0.8"/>
+  <rect x="20" y="602" width="5" height="110" rx="2" fill="#EF9F27"/>
+
+  <rect x="34" y="610" width="68" height="16" rx="8" fill="#FAEEDA"/>
+  <text x="68" y="621" text-anchor="middle" font-size="10" font-weight="600" fill="#854F0B">FAQ item 27</text>
+  <rect x="110" y="610" width="124" height="16" rx="8" fill="#EF9F27"/>
+  <text x="172" y="621" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Dado defasado/informal</text>
+
+  <text x="34" y="642" font-size="12" font-weight="600" fill="#1a1a18">Threshold de prioridade alta — FAQ usa R$50k, SLA-2024 define R$100k para incidente crítico</text>
+
+  <rect x="34" y="654" width="556" height="44" rx="6" fill="#FAEEDA"/>
+  <text x="42" y="670" font-size="10" font-weight="600" fill="#854F0B">FAQ item 27</text>
+  <text x="42" y="686" font-size="10" fill="#633806">Classifique como prioridade alta se valor acima de R$ 50.000.</text>
+
+  <rect x="608" y="654" width="556" height="44" rx="6" fill="#EAF3DE"/>
+  <text x="616" y="670" font-size="10" font-weight="600" fill="#3B6D11">SLA-2024 (documento contratual)</text>
+  <text x="616" y="686" font-size="10" fill="#27500A">Incidente crítico: carga acima de R$ 100.000 sem status por &gt;6h.</text>
+
+  <rect x="34" y="703" width="1140" height="2" fill="#f1efe8"/>
+  <text x="34" y="718" font-size="10" fill="#854F0B">Veredicto: threshold informal 2x mais conservador que o contratual. Gera escalações desnecessárias para cargas entre R$50k e R$100k e cria expectativa de SLA diferenciado não previsto em contrato.</text>
+
+  <rect x="1060" y="608" width="112" height="16" rx="8" fill="#EF9F27"/>
+  <text x="1116" y="619" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Risco RAG: Alto</text>
+  <rect x="1060" y="630" width="112" height="16" rx="8" fill="#FAEEDA"/>
+  <text x="1116" y="641" text-anchor="middle" font-size="10" font-weight="600" fill="#854F0B">Usar SLA-2024</text>
+
+  <!-- CARD: Item 41 -->
+  <rect x="20" y="722" width="1160" height="110" rx="8" fill="#fff" stroke="#EF9F27" stroke-width="0.8"/>
+  <rect x="20" y="722" width="5" height="110" rx="2" fill="#EF9F27"/>
+
+  <rect x="34" y="730" width="68" height="16" rx="8" fill="#FAEEDA"/>
+  <text x="68" y="741" text-anchor="middle" font-size="10" font-weight="600" fill="#854F0B">FAQ item 41</text>
+  <rect x="110" y="730" width="144" height="16" rx="8" fill="#EF9F27"/>
+  <text x="182" y="741" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Informação incompleta</text>
+
+  <text x="34" y="762" font-size="12" font-weight="600" fill="#1a1a18">SLAs por tier — valores corretos, mas omite regra de pausa fora do horário comercial</text>
+
+  <rect x="34" y="774" width="556" height="44" rx="6" fill="#FAEEDA"/>
+  <text x="42" y="790" font-size="10" font-weight="600" fill="#854F0B">FAQ item 41</text>
+  <text x="42" y="806" font-size="10" fill="#633806">Gold 2h/24h · Silver 4h/48h · Standard 8h/72h. Sem mencionar pausa.</text>
+
+  <rect x="608" y="774" width="556" height="44" rx="6" fill="#EAF3DE"/>
+  <text x="616" y="790" font-size="10" font-weight="600" fill="#3B6D11">SLA-2024 seção 5</text>
+  <text x="616" y="806" font-size="10" fill="#27500A">Relógio pausa fora de 08h–18h (exceto incidente crítico Gold, que não pausa).</text>
+
+  <rect x="34" y="823" width="1140" height="2" fill="#f1efe8"/>
+  <text x="34" y="838" font-size="10" fill="#854F0B">Veredicto: omissão da pausa gera dois erros opostos — atendente acha que está dentro do SLA quando não está (Gold às 20h) ou informa que venceu quando não venceu (chamado geral às 17h).</text>
+
+  <rect x="1060" y="728" width="112" height="16" rx="8" fill="#EF9F27"/>
+  <text x="1116" y="739" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Risco RAG: Médio</text>
+  <rect x="1060" y="750" width="112" height="16" rx="8" fill="#FAEEDA"/>
+  <text x="1116" y="761" text-anchor="middle" font-size="10" font-weight="600" fill="#854F0B">Complementar SLA</text>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- SEÇÃO 3: LACUNAS -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <rect x="20" y="848" width="1160" height="24" rx="5" fill="#185FA5"/>
+  <text x="600" y="860" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">FAQ como única fonte — temas sem documento formal correspondente (2 itens)</text>
+
+  <!-- CARD: Item 38 -->
+  <rect x="20" y="880" width="570" height="110" rx="8" fill="#fff" stroke="#378ADD" stroke-width="0.8"/>
+  <rect x="20" y="880" width="5" height="110" rx="2" fill="#378ADD"/>
+  <rect x="34" y="888" width="68" height="16" rx="8" fill="#E6F1FB"/>
+  <text x="68" y="899" text-anchor="middle" font-size="10" font-weight="600" fill="#185FA5">FAQ item 38</text>
+  <rect x="110" y="888" width="110" height="16" rx="8" fill="#378ADD"/>
+  <text x="165" y="899" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Lacuna crítica</text>
+  <text x="34" y="920" font-size="11" font-weight="600" fill="#1a1a18">Carga danificada em trânsito</text>
+  <text x="34" y="936" font-size="10" fill="#185FA5">48h, fotos, laudo, sinistros@novatech.com.br.</text>
+  <text x="34" y="950" font-size="10" fill="#185FA5">Reembolso integral se responsabilidade da NT.</text>
+  <text x="34" y="964" font-size="10" fill="#185FA5">Sem POL ou PROC formal correspondente.</text>
+  <rect x="34" y="975" width="1140" height="2" fill="#f1efe8"/>
+  <text x="34" y="987" font-size="9" fill="#185FA5">RAG apresenta prática informal com autoridade de normativo.</text>
+  <rect x="430" y="886" width="112" height="16" rx="8" fill="#E24B4A"/>
+  <text x="486" y="897" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Risco: Crítico</text>
+  <rect x="430" y="908" width="112" height="16" rx="8" fill="#FCEBEB"/>
+  <text x="486" y="919" text-anchor="middle" font-size="10" font-weight="600" fill="#A32D2D">Nao indexar</text>
+
+  <!-- CARD: Item 22 -->
+  <rect x="610" y="880" width="570" height="110" rx="8" fill="#fff" stroke="#378ADD" stroke-width="0.8"/>
+  <rect x="610" y="880" width="5" height="110" rx="2" fill="#378ADD"/>
+  <rect x="624" y="888" width="68" height="16" rx="8" fill="#E6F1FB"/>
+  <text x="658" y="899" text-anchor="middle" font-size="10" font-weight="600" fill="#185FA5">FAQ item 22</text>
+  <rect x="700" y="888" width="110" height="16" rx="8" fill="#378ADD"/>
+  <text x="755" y="899" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Lacuna comercial</text>
+  <text x="624" y="920" font-size="11" font-weight="600" fill="#1a1a18">Seguro de carga</text>
+  <text x="624" y="936" font-size="10" fill="#185FA5">0,3% cargas padrão · 0,8% cargas perigosas.</text>
+  <text x="624" y="950" font-size="10" fill="#185FA5">Contratos pré-2023 podem ter percentuais diferentes.</text>
+  <text x="624" y="964" font-size="10" fill="#185FA5">Sem tabela comercial ou política formal de seguro.</text>
+  <text x="624" y="987" font-size="9" fill="#185FA5">Promessa comercial sem respaldo. Risco de litígio.</text>
+  <rect x="1020" y="886" width="112" height="16" rx="8" fill="#BA7517"/>
+  <text x="1076" y="897" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Risco: Alto</text>
+  <rect x="1020" y="908" width="112" height="16" rx="8" fill="#FAEEDA"/>
+  <text x="1076" y="919" text-anchor="middle" font-size="10" font-weight="600" fill="#854F0B">Nao indexar</text>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- SEÇÃO 4: ALINHADOS -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <rect x="20" y="1004" width="1160" height="24" rx="5" fill="#1D9E75"/>
+  <text x="600" y="1016" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">Itens do FAQ alinhados com a documentação formal (2 itens)</text>
+
+  <!-- CARD: Item 15 -->
+  <rect x="20" y="1036" width="570" height="86" rx="8" fill="#fff" stroke="#1D9E75" stroke-width="0.8"/>
+  <rect x="20" y="1036" width="5" height="86" rx="2" fill="#1D9E75"/>
+  <rect x="34" y="1044" width="68" height="16" rx="8" fill="#EAF3DE"/>
+  <text x="68" y="1055" text-anchor="middle" font-size="10" font-weight="600" fill="#3B6D11">FAQ item 15</text>
+  <rect x="110" y="1044" width="82" height="16" rx="8" fill="#1D9E75"/>
+  <text x="151" y="1055" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Alinhado</text>
+  <text x="34" y="1076" font-size="11" font-weight="600" fill="#1a1a18">Tier Platinum não existe</text>
+  <text x="34" y="1092" font-size="10" fill="#3B6D11">SLA-2024 explícito: apenas Gold, Silver e Standard.</text>
+  <text x="34" y="1106" font-size="10" fill="#3B6D11">FAQ reforça e explica o contexto (programa descontinuado 2022).</text>
+  <rect x="430" y="1042" width="112" height="16" rx="8" fill="#1D9E75"/>
+  <text x="486" y="1053" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Risco: Baixo</text>
+  <rect x="430" y="1064" width="112" height="16" rx="8" fill="#EAF3DE"/>
+  <text x="486" y="1075" text-anchor="middle" font-size="10" font-weight="600" fill="#3B6D11">Indexar</text>
+
+  <!-- CARD: Item 3 -->
+  <rect x="610" y="1036" width="570" height="86" rx="8" fill="#fff" stroke="#1D9E75" stroke-width="0.8"/>
+  <rect x="610" y="1036" width="5" height="86" rx="2" fill="#1D9E75"/>
+  <rect x="624" y="1044" width="60" height="16" rx="8" fill="#EAF3DE"/>
+  <text x="654" y="1055" text-anchor="middle" font-size="10" font-weight="600" fill="#3B6D11">FAQ item 3</text>
+  <rect x="692" y="1044" width="156" height="16" rx="8" fill="#1D9E75"/>
+  <text x="770" y="1055" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Substancialmente alinhado</text>
+  <text x="624" y="1076" font-size="11" font-weight="600" fill="#1a1a18">Devolução de carga perigosa</text>
+  <text x="624" y="1092" font-size="10" fill="#3B6D11">POL-001 e FAQ convergem: encaminhar ao ramal 4500.</text>
+  <text x="624" y="1106" font-size="10" fill="#3B6D11">Nuance de "exceções passadas" é válida se ressalvada como informal.</text>
+  <rect x="1020" y="1042" width="112" height="16" rx="8" fill="#378ADD"/>
+  <text x="1076" y="1053" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Risco: Médio</text>
+  <rect x="1020" y="1064" width="112" height="16" rx="8" fill="#EAF3DE"/>
+  <text x="1076" y="1075" text-anchor="middle" font-size="10" font-weight="600" fill="#3B6D11">Flag informal</text>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- MATRIZ FINAL -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <rect x="20" y="1140" width="1160" height="24" rx="5" fill="#444441"/>
+  <text x="600" y="1152" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">Matriz de decisão — o que fazer com cada item do FAQ no pipeline RAG</text>
+
+  <!-- Cabeçalho matriz -->
+  <rect x="20" y="1170" width="1160" height="22" rx="0" fill="#F1EFE8"/>
+  <text x="76" y="1184" text-anchor="middle" font-size="10" font-weight="600" fill="#5f5e5a">Item</text>
+  <line x1="132" y1="1170" x2="132" y2="1192" stroke="#d3d1c7" stroke-width="0.5"/>
+  <text x="340" y="1184" text-anchor="middle" font-size="10" font-weight="600" fill="#5f5e5a">Tema</text>
+  <line x1="548" y1="1170" x2="548" y2="1192" stroke="#d3d1c7" stroke-width="0.5"/>
+  <text x="690" y="1184" text-anchor="middle" font-size="10" font-weight="600" fill="#5f5e5a">Status vs. documentação formal</text>
+  <line x1="832" y1="1170" x2="832" y2="1192" stroke="#d3d1c7" stroke-width="0.5"/>
+  <text x="930" y="1184" text-anchor="middle" font-size="10" font-weight="600" fill="#5f5e5a">Risco RAG</text>
+  <line x1="1028" y1="1170" x2="1028" y2="1192" stroke="#d3d1c7" stroke-width="0.5"/>
+  <text x="1116" y="1184" text-anchor="middle" font-size="10" font-weight="600" fill="#5f5e5a">Indexar?</text>
+
+  <!-- Linhas da matriz -->
+  <!-- Item 3 -->
+  <rect x="20" y="1192" width="1160" height="20" rx="0" fill="#fff" stroke="#e8e6de" stroke-width="0.5"/>
+  <text x="76" y="1205" text-anchor="middle" font-size="10" fill="#1a1a18">Item 3</text>
+  <line x1="132" y1="1192" x2="132" y2="1212" stroke="#e8e6de" stroke-width="0.5"/>
+  <text x="340" y="1205" text-anchor="middle" font-size="10" fill="#1a1a18">Devolução de carga perigosa</text>
+  <line x1="548" y1="1192" x2="548" y2="1212" stroke="#e8e6de" stroke-width="0.5"/>
+  <text x="690" y="1205" text-anchor="middle" font-size="10" fill="#3B6D11">Alinhado com ressalva</text>
+  <line x1="832" y1="1192" x2="832" y2="1212" stroke="#e8e6de" stroke-width="0.5"/>
+  <rect x="872" y="1196" width="116" height="12" rx="6" fill="#FAEEDA"/>
+  <text x="930" y="1205" text-anchor="middle" font-size="9" font-weight="600" fill="#854F0B">Médio</text>
+  <line x1="1028" y1="1192" x2="1028" y2="1212" stroke="#e8e6de" stroke-width="0.5"/>
+  <text x="1116" y="1205" text-anchor="middle" font-size="10" fill="#3B6D11">Sim, flag "informal"</text>
+
+  <!-- Item 8 -->
+  <rect x="20" y="1212" width="1160" height="20" rx="0" fill="#f9f8f5" stroke="#e8e6de" stroke-width="0.5"/>
+  <text x="76" y="1225" text-anchor="middle" font-size="10" fill="#1a1a18">Item 8</text>
+  <line x1="132" y1="1212" x2="132" y2="1232" stroke="#e8e6de" stroke-width="0.5"/>
+  <text x="340" y="1225" text-anchor="middle" font-size="10" fill="#1a1a18">Frete especial — qual versão usar</text>
+  <line x1="548" y1="1212" x2="548" y2="1232" stroke="#e8e6de" stroke-width="0.5"/>
+  <text x="690" y="1225" text-anchor="middle" font-size="10" fill="#A32D2D">Heurística informal, sem respaldo</text>
+  <line x1="832" y1="1212" x2="832" y2="1232" stroke="#e8e6de" stroke-width="0.5"/>
+  <rect x="872" y="1216" width="116" height="12" rx="6" fill="#FCEBEB"/>
+  <text x="930" y="1225" text-anchor="middle" font-size="9" font-weight="600" fill="#A32D2D">Crítico</text>
+  <line x1="1028" y1="1212" x2="1028" y2="1232" stroke="#e8e6de" stroke-width="0.5"/>
+  <text x="1116" y="1225" text-anchor="middle" font-size="10" fill="#A32D2D">Não — resolução pendente</text>
+
+  <!-- Item 15 -->
+  <rect x="20" y="1232" width="1160" height="20" rx="0" fill="#fff" stroke="#e8e6de" stroke-width="0.5"/>
+  <text x="76" y="1245" text-anchor="middle" font-size="10" fill="#1a1a18">Item 15</text>
+  <line x1="132" y1="1232" x2="132" y2="1252" stroke="#e8e6de" stroke-width="0.5"/>
+  <text x="340" y="1245" text-anchor="middle" font-size="10" fill="#1a1a18">Tier Platinum inexistente</text>
+  <line x1="548" y1="1232" x2="548" y2="1252" stroke="#e8e6de" stroke-width="0.5"/>
+  <text x="690" y="1245" text-anchor="middle" font-size="10" fill="#3B6D11">Correto e alinhado com SLA-2024</text>
+  <line x1="832" y1="1232" x2="832" y2="1252" stroke="#e8e6de" stroke-width="0.5"/>
+  <rect x="872" y="1236" width="116" height="12" rx="6" fill="#EAF3DE"/>
+  <text x="930" y="1245" text-anchor="middle" font-size="9" font-weight="600" fill="#3B6D11">Baixo</text>
+  <line x1="1028" y1="1232" x2="1028" y2="1252" stroke="#e8e6de" stroke-width="0.5"/>
+  <text x="1116" y="1245" text-anchor="middle" font-size="10" fill="#3B6D11">Sim</text>
+
+  <!-- Item 22 -->
+  <rect x="20" y="1252" width="1160" height="20" rx="0" fill="#f9f8f5" stroke="#e8e6de" stroke-width="0.5"/>
+  <text x="76" y="1265" text-anchor="middle" font-size="10" fill="#1a1a18">Item 22</text>
+  <line x1="132" y1="1252" x2="132" y2="1272" stroke="#e8e6de" stroke-width="0.5"/>
+  <text x="340" y="1265" text-anchor="middle" font-size="10" fill="#1a1a18">Seguro de carga</text>
+  <line x1="548" y1="1252" x2="548" y2="1272" stroke="#e8e6de" stroke-width="0.5"/>
+  <text x="690" y="1265" text-anchor="middle" font-size="10" fill="#A32D2D">Sem documento formal</text>
+  <line x1="832" y1="1252" x2="832" y2="1272" stroke="#e8e6de" stroke-width="0.5"/>
+  <rect x="872" y="1256" width="116" height="12" rx="6" fill="#FCEBEB"/>
+  <text x="930" y="1265" text-anchor="middle" font-size="9" font-weight="600" fill="#A32D2D">Crítico</text>
+  <line x1="1028" y1="1252" x2="1028" y2="1272" stroke="#e8e6de" stroke-width="0.5"/>
+  <text x="1116" y="1265" text-anchor="middle" font-size="10" fill="#A32D2D">Não — ou com disclaimer</text>
+
+  <!-- Item 27 -->
+  <rect x="20" y="1272" width="1160" height="20" rx="0" fill="#fff" stroke="#e8e6de" stroke-width="0.5"/>
+  <text x="76" y="1285" text-anchor="middle" font-size="10" fill="#1a1a18">Item 27</text>
+  <line x1="132" y1="1272" x2="132" y2="1292" stroke="#e8e6de" stroke-width="0.5"/>
+  <text x="340" y="1285" text-anchor="middle" font-size="10" fill="#1a1a18">Threshold de prioridade alta</text>
+  <line x1="548" y1="1272" x2="548" y2="1292" stroke="#e8e6de" stroke-width="0.5"/>
+  <text x="690" y="1285" text-anchor="middle" font-size="10" fill="#854F0B">Diverge do SLA-2024 (R$50k vs R$100k)</text>
+  <line x1="832" y1="1272" x2="832" y2="1292" stroke="#e8e6de" stroke-width="0.5"/>
+  <rect x="872" y="1276" width="116" height="12" rx="6" fill="#FAEEDA"/>
+  <text x="930" y="1285" text-anchor="middle" font-size="9" font-weight="600" fill="#854F0B">Alto</text>
+  <line x1="1028" y1="1272" x2="1028" y2="1292" stroke="#e8e6de" stroke-width="0.5"/>
+  <text x="1116" y="1285" text-anchor="middle" font-size="10" fill="#854F0B">Não — usar SLA-2024</text>
+
+  <!-- Item 32 -->
+  <rect x="20" y="1292" width="1160" height="20" rx="0" fill="#f9f8f5" stroke="#e8e6de" stroke-width="0.5"/>
+  <text x="76" y="1305" text-anchor="middle" font-size="10" fill="#1a1a18">Item 32</text>
+  <line x1="132" y1="1292" x2="132" y2="1312" stroke="#e8e6de" stroke-width="0.5"/>
+  <text x="340" y="1305" text-anchor="middle" font-size="10" fill="#1a1a18">Frete expresso p/ carga perigosa</text>
+  <line x1="548" y1="1292" x2="548" y2="1312" stroke="#e8e6de" stroke-width="0.5"/>
+  <text x="690" y="1305" text-anchor="middle" font-size="10" fill="#A32D2D">Sem PROC formal de suporte</text>
+  <line x1="832" y1="1292" x2="832" y2="1312" stroke="#e8e6de" stroke-width="0.5"/>
+  <rect x="872" y="1296" width="116" height="12" rx="6" fill="#FCEBEB"/>
+  <text x="930" y="1305" text-anchor="middle" font-size="9" font-weight="600" fill="#A32D2D">Crítico</text>
+  <line x1="1028" y1="1292" x2="1028" y2="1312" stroke="#e8e6de" stroke-width="0.5"/>
+  <text x="1116" y="1305" text-anchor="middle" font-size="10" fill="#A32D2D">Não — sem PROC-043</text>
+
+  <!-- Rodapé -->
+  <text x="600" y="1312" text-anchor="middle" font-size="10" fill="#888780">Projeto Assistente RAG NovaTech · Discovery · DB1</text>
+</svg>
