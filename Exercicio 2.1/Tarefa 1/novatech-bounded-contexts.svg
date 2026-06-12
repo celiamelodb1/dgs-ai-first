@@ -1,0 +1,338 @@
+<svg viewBox="0 0 1100 820" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+
+  <!-- Background -->
+  <rect width="1100" height="820" fill="#0F1117"/>
+
+  <!-- Header -->
+  <rect width="1100" height="64" fill="#13182A"/>
+  <text x="32" y="24" font-size="10" font-weight="700" fill="#475569" letter-spacing="3">NOVATECH · ASSISTENTE DE IA</text>
+  <text x="32" y="48" font-size="20" font-weight="800" fill="#F1F5F9" letter-spacing="-0.5">Mapa de Bounded Contexts</text>
+  <text x="700" y="38" font-size="11" fill="#475569">com Linguagem Ubíqua do Domínio · Fonte: Anexo A</text>
+
+  <!-- ═══════════════════════════════════════════════
+       LEGENDA
+  ════════════════════════════════════════════════ -->
+  <g transform="translate(32, 82)">
+    <text x="0" y="14" font-size="9" font-weight="700" fill="#475569" letter-spacing="2">LEGENDA</text>
+    <!-- normativo -->
+    <rect x="0" y="22" width="10" height="10" rx="2" fill="#1E3A5F" stroke="#4A90D9" stroke-width="1.5"/>
+    <text x="14" y="31" font-size="10" fill="#94A3B8">Normativo/Procedimento</text>
+    <!-- contratual -->
+    <rect x="130" y="22" width="10" height="10" rx="2" fill="#4A2060" stroke="#A855F7" stroke-width="1.5"/>
+    <text x="144" y="31" font-size="10" fill="#94A3B8">Contratual</text>
+    <!-- risco alto -->
+    <circle cx="225" cy="27" r="5" fill="#EF4444"/>
+    <text x="234" y="31" font-size="10" fill="#94A3B8">Risco Alto</text>
+    <!-- risco médio -->
+    <circle cx="300" cy="27" r="5" fill="#F59E0B"/>
+    <text x="309" y="31" font-size="10" fill="#94A3B8">Risco Médio</text>
+    <!-- risco baixo -->
+    <circle cx="378" cy="27" r="5" fill="#22C55E"/>
+    <text x="387" y="31" font-size="10" fill="#94A3B8">Risco Baixo</text>
+    <!-- seta relação -->
+    <line x1="450" y1="27" x2="490" y2="27" stroke="#4A90D9" stroke-width="1.5" stroke-dasharray="4 2" marker-end="url(#arr-leg)"/>
+    <text x="496" y="31" font-size="10" fill="#94A3B8">Relação entre contextos</text>
+  </g>
+
+  <!-- ═══════════════════════════════════════════════
+       ARROW MARKERS
+  ════════════════════════════════════════════════ -->
+  <defs>
+    <marker id="arr-leg" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#4A90D9"/>
+    </marker>
+    <marker id="arr-blue" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#4A90D9"/>
+    </marker>
+    <marker id="arr-green" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#3DBE7A"/>
+    </marker>
+    <marker id="arr-purple" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#A855F7"/>
+    </marker>
+    <marker id="arr-orange" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#F97316"/>
+    </marker>
+    <marker id="arr-cyan" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#22D3EE"/>
+    </marker>
+  </defs>
+
+  <!-- ═══════════════════════════════════════════════
+       BC-01 — GESTÃO DO CONHECIMENTO (top center)
+  ════════════════════════════════════════════════ -->
+  <g transform="translate(350, 130)">
+    <!-- box -->
+    <rect x="0" y="0" width="300" height="210" rx="14" fill="#0D1E35" stroke="#4A90D9" stroke-width="2"/>
+    <!-- header bar -->
+    <rect x="0" y="0" width="300" height="44" rx="14" fill="#1E3A5F"/>
+    <rect x="0" y="30" width="300" height="14" fill="#1E3A5F"/>
+    <text x="14" y="18" font-size="10" font-weight="700" fill="#4A90D9" letter-spacing="2">BC-01</text>
+    <text x="14" y="33" font-size="13" font-weight="800" fill="#F1F5F9">📚 Gestão do Conhecimento</text>
+
+    <!-- terms section -->
+    <text x="14" y="60" font-size="9" font-weight="700" fill="#4A90D9" letter-spacing="1.5">LINGUAGEM UBÍQUA</text>
+
+    <!-- term rows -->
+    <rect x="10" y="66" width="280" height="22" rx="5" fill="#0A1525"/>
+    <text x="16" y="81" font-size="10" font-weight="700" fill="#60A5FA">Documento Normativo</text>
+    <text x="174" y="81" font-size="9" fill="#64748B">POL / PROC · cumprimento obrigatório</text>
+    <circle cx="275" cy="77" r="4" fill="#22C55E"/>
+
+    <rect x="10" y="92" width="280" height="22" rx="5" fill="#0A1525"/>
+    <text x="16" y="107" font-size="10" font-weight="700" fill="#60A5FA">Documento Contratual</text>
+    <text x="175" y="107" font-size="9" fill="#64748B">SLA · consequência financeira</text>
+    <circle cx="275" cy="103" r="4" fill="#F59E0B"/>
+
+    <rect x="10" y="118" width="280" height="22" rx="5" fill="#0A1525"/>
+    <text x="16" y="133" font-size="10" font-weight="700" fill="#60A5FA">Documento Informal</text>
+    <text x="164" y="133" font-size="9" fill="#64748B">FAQ · sem validação · uso com ressalva</text>
+    <circle cx="275" cy="129" r="4" fill="#EF4444"/>
+
+    <rect x="10" y="144" width="280" height="22" rx="5" fill="#0A1525"/>
+    <text x="16" y="159" font-size="10" font-weight="700" fill="#60A5FA">Versão Vigente</text>
+    <text x="107" y="159" font-size="9" fill="#64748B">PROC-042 v2 vigente pós 01/12/2023</text>
+    <circle cx="275" cy="155" r="4" fill="#EF4444"/>
+
+    <rect x="10" y="170" width="280" height="22" rx="5" fill="#0A1525"/>
+    <text x="16" y="185" font-size="10" font-weight="700" fill="#60A5FA">Gap Documental</text>
+    <text x="118" y="185" font-size="9" fill="#64748B">ausência de fonte normativa para tema</text>
+    <circle cx="275" cy="181" r="4" fill="#EF4444"/>
+
+    <!-- risk alert -->
+    <rect x="10" y="197" width="280" height="7" rx="3" fill="#1A0D0D" stroke="#3A1A1A" stroke-width="0.5"/>
+    <text x="16" y="203" font-size="8" fill="#EF4444">⚠ v1 e v2 coexistem sem hierarquia formal — bloqueante de implementação</text>
+  </g>
+
+  <!-- ═══════════════════════════════════════════════
+       BC-02 — ATENDIMENTO (middle left)
+  ════════════════════════════════════════════════ -->
+  <g transform="translate(32, 390)">
+    <rect x="0" y="0" width="300" height="250" rx="14" fill="#0D1E17" stroke="#3DBE7A" stroke-width="2"/>
+    <rect x="0" y="0" width="300" height="44" rx="14" fill="#1A4731"/>
+    <rect x="0" y="30" width="300" height="14" fill="#1A4731"/>
+    <text x="14" y="18" font-size="10" font-weight="700" fill="#3DBE7A" letter-spacing="2">BC-02</text>
+    <text x="14" y="33" font-size="13" font-weight="800" fill="#F1F5F9">💬 Atendimento e Consulta</text>
+
+    <text x="14" y="60" font-size="9" font-weight="700" fill="#3DBE7A" letter-spacing="1.5">LINGUAGEM UBÍQUA</text>
+
+    <rect x="10" y="66" width="280" height="22" rx="5" fill="#091510"/>
+    <text x="16" y="81" font-size="10" font-weight="700" fill="#4ADE80">Resposta Fundamentada</text>
+    <text x="182" y="81" font-size="9" fill="#64748B">citação doc + versão + seção</text>
+    <circle cx="275" cy="77" r="4" fill="#22C55E"/>
+
+    <rect x="10" y="92" width="280" height="22" rx="5" fill="#091510"/>
+    <text x="16" y="107" font-size="10" font-weight="700" fill="#4ADE80">Resposta com Ressalva</text>
+    <text x="179" y="107" font-size="9" fill="#64748B">baseada em doc informal (FAQ)</text>
+    <circle cx="275" cy="103" r="4" fill="#F59E0B"/>
+
+    <rect x="10" y="118" width="280" height="22" rx="5" fill="#091510"/>
+    <text x="16" y="133" font-size="10" font-weight="700" fill="#4ADE80">Contradição Detectada</text>
+    <text x="178" y="133" font-size="9" fill="#64748B">chunks conflitantes → escalada</text>
+    <circle cx="275" cy="129" r="4" fill="#EF4444"/>
+
+    <rect x="10" y="144" width="280" height="22" rx="5" fill="#091510"/>
+    <text x="16" y="159" font-size="10" font-weight="700" fill="#4ADE80">Escalada</text>
+    <text x="70" y="159" font-size="9" fill="#64748B">encaminhamento quando resposta não é confiável</text>
+    <circle cx="275" cy="155" r="4" fill="#F59E0B"/>
+
+    <rect x="10" y="170" width="280" height="22" rx="5" fill="#091510"/>
+    <text x="16" y="185" font-size="10" font-weight="700" fill="#4ADE80">CT-e</text>
+    <text x="44" y="185" font-size="9" fill="#64748B">Conhecimento de Transporte Eletrônico · id da op.</text>
+    <circle cx="275" cy="181" r="4" fill="#22C55E"/>
+
+    <rect x="10" y="196" width="280" height="22" rx="5" fill="#091510"/>
+    <text x="16" y="211" font-size="10" font-weight="700" fill="#4ADE80">Gap Documental</text>
+    <text x="118" y="211" font-size="9" fill="#64748B">"não encontrado na doc. oficial"</text>
+    <circle cx="275" cy="207" r="4" fill="#EF4444"/>
+
+    <rect x="10" y="223" width="280" height="7" rx="3" fill="#1A0D0D" stroke="#3A1A1A" stroke-width="0.5"/>
+    <text x="16" y="229" font-size="8" fill="#EF4444">⚠ fluxo de fallback e escalada não especificado formalmente pelo cliente</text>
+  </g>
+
+  <!-- ═══════════════════════════════════════════════
+       BC-03 — SLAs E CONTRATOS (middle right top)
+  ════════════════════════════════════════════════ -->
+  <g transform="translate(768, 130)">
+    <rect x="0" y="0" width="300" height="250" rx="14" fill="#1A0E2A" stroke="#A855F7" stroke-width="2"/>
+    <rect x="0" y="0" width="300" height="44" rx="14" fill="#4A2060"/>
+    <rect x="0" y="30" width="300" height="14" fill="#4A2060"/>
+    <text x="14" y="18" font-size="10" font-weight="700" fill="#A855F7" letter-spacing="2">BC-03</text>
+    <text x="14" y="33" font-size="13" font-weight="800" fill="#F1F5F9">📋 SLAs e Contratos</text>
+
+    <text x="14" y="60" font-size="9" font-weight="700" fill="#A855F7" letter-spacing="1.5">LINGUAGEM UBÍQUA</text>
+
+    <rect x="10" y="66" width="280" height="22" rx="5" fill="#13091F"/>
+    <text x="16" y="81" font-size="10" font-weight="700" fill="#C084FC">Tier de Cliente</text>
+    <text x="107" y="81" font-size="9" fill="#64748B">Gold / Silver / Standard (OU) · Platinum ≠ existe</text>
+    <circle cx="275" cy="77" r="4" fill="#22C55E"/>
+
+    <rect x="10" y="92" width="280" height="22" rx="5" fill="#13091F"/>
+    <text x="16" y="107" font-size="10" font-weight="700" fill="#C084FC">Incidente Crítico</text>
+    <text x="116" y="107" font-size="9" fill="#64748B">≥1 de 4 critérios · valor &gt;R$100K / carga peri...</text>
+    <circle cx="275" cy="103" r="4" fill="#F59E0B"/>
+
+    <rect x="10" y="118" width="280" height="22" rx="5" fill="#13091F"/>
+    <text x="16" y="133" font-size="10" font-weight="700" fill="#C084FC">SLA de Primeira Resposta</text>
+    <text x="190" y="133" font-size="9" fill="#64748B">1º retorno, mesmo "verificando"</text>
+    <circle cx="275" cy="129" r="4" fill="#22C55E"/>
+
+    <rect x="10" y="144" width="280" height="22" rx="5" fill="#13091F"/>
+    <text x="16" y="159" font-size="10" font-weight="700" fill="#C084FC">SLA de Resolução</text>
+    <text x="131" y="159" font-size="9" fill="#64748B">encerramento efetivo do problema</text>
+    <circle cx="275" cy="155" r="4" fill="#F59E0B"/>
+
+    <rect x="10" y="170" width="280" height="22" rx="5" fill="#13091F"/>
+    <text x="16" y="185" font-size="10" font-weight="700" fill="#C084FC">Relógio de SLA</text>
+    <text x="112" y="185" font-size="9" fill="#64748B">pausa fora 08h-18h; Gold crítico: 24/7</text>
+    <circle cx="275" cy="181" r="4" fill="#EF4444"/>
+
+    <rect x="10" y="196" width="280" height="22" rx="5" fill="#13091F"/>
+    <text x="16" y="211" font-size="10" font-weight="700" fill="#C084FC">Penalidade de SLA</text>
+    <text x="130" y="211" font-size="9" fill="#64748B">1ª: registro / 2ª: 5% / 3ª+: 10% + reunião</text>
+    <circle cx="275" cy="207" r="4" fill="#F59E0B"/>
+
+    <rect x="10" y="223" width="280" height="7" rx="3" fill="#1A150A" stroke="#3A2E0A" stroke-width="0.5"/>
+    <text x="16" y="229" font-size="8" fill="#F59E0B">⚠ FAQ usa limiar R$50K; SLA-2024 usa R$100K para incidente crítico</text>
+  </g>
+
+  <!-- ═══════════════════════════════════════════════
+       BC-04 — LOGÍSTICA E FRETE (middle right bottom)
+  ════════════════════════════════════════════════ -->
+  <g transform="translate(768, 430)">
+    <rect x="0" y="0" width="300" height="270" rx="14" fill="#1F0A00" stroke="#F97316" stroke-width="2"/>
+    <rect x="0" y="0" width="300" height="44" rx="14" fill="#7A2D00"/>
+    <rect x="0" y="30" width="300" height="14" fill="#7A2D00"/>
+    <text x="14" y="18" font-size="10" font-weight="700" fill="#F97316" letter-spacing="2">BC-04</text>
+    <text x="14" y="33" font-size="13" font-weight="800" fill="#F1F5F9">🚛 Logística e Frete</text>
+
+    <text x="14" y="60" font-size="9" font-weight="700" fill="#F97316" letter-spacing="1.5">LINGUAGEM UBÍQUA</text>
+
+    <rect x="10" y="66" width="280" height="22" rx="5" fill="#150500"/>
+    <text x="16" y="81" font-size="10" font-weight="700" fill="#FB923C">Frete Especial</text>
+    <text x="104" y="81" font-size="9" fill="#64748B">acima de 500kg · fórmula ×mult×fator</text>
+    <circle cx="275" cy="77" r="4" fill="#22C55E"/>
+
+    <rect x="10" y="92" width="280" height="22" rx="5" fill="#150500"/>
+    <text x="16" y="107" font-size="10" font-weight="700" fill="#FB923C">Frete Padrão</text>
+    <text x="96" y="107" font-size="9" fill="#64748B">⚠ sem definição formal · gap documental</text>
+    <circle cx="275" cy="103" r="4" fill="#EF4444"/>
+
+    <rect x="10" y="118" width="280" height="22" rx="5" fill="#150500"/>
+    <text x="16" y="133" font-size="10" font-weight="700" fill="#FB923C">Multiplicador Regional</text>
+    <text x="173" y="133" font-size="9" fill="#64748B">v2: Sul1.2/SE1.0/CO1.4/NE1.5/N1.8</text>
+    <circle cx="275" cy="129" r="4" fill="#EF4444"/>
+
+    <rect x="10" y="144" width="280" height="22" rx="5" fill="#150500"/>
+    <text x="16" y="159" font-size="10" font-weight="700" fill="#FB923C">Fator de Peso</text>
+    <text x="101" y="159" font-size="9" fill="#64748B">500-1000: 1.0 / 1001-3000: 1.15 / &gt;3000: 1.4</text>
+    <circle cx="275" cy="155" r="4" fill="#EF4444"/>
+
+    <rect x="10" y="170" width="280" height="22" rx="5" fill="#150500"/>
+    <text x="16" y="185" font-size="10" font-weight="700" fill="#FB923C">Coleta Reversa</text>
+    <text x="111" y="185" font-size="9" fill="#64748B">serviço de retirada · até 2 dias úteis</text>
+    <circle cx="275" cy="181" r="4" fill="#22C55E"/>
+
+    <rect x="10" y="196" width="280" height="22" rx="5" fill="#150500"/>
+    <text x="16" y="211" font-size="10" font-weight="700" fill="#FB923C">Frete Reverso</text>
+    <text x="100" y="211" font-size="9" fill="#64748B">custo do retorno (≠ coleta reversa)</text>
+    <circle cx="275" cy="207" r="4" fill="#F59E0B"/>
+
+    <rect x="10" y="222" width="280" height="22" rx="5" fill="#150500"/>
+    <text x="16" y="237" font-size="10" font-weight="700" fill="#FB923C">Carga Perigosa</text>
+    <text x="107" y="237" font-size="9" fill="#64748B">classes 1-6 ANTT · classes 7-9 sem cobertura</text>
+    <circle cx="275" cy="233" r="4" fill="#F59E0B"/>
+
+    <rect x="10" y="249" width="280" height="7" rx="3" fill="#1A0D0D" stroke="#3A1A1A" stroke-width="0.5"/>
+    <text x="16" y="255" font-size="8" fill="#EF4444">⚠ v1 vs v2: Norte 1.6→1.8 (+12,5%) · fator&gt;3000: 1.5→1.4 · prazo +2→+3d</text>
+  </g>
+
+  <!-- ═══════════════════════════════════════════════
+       BC-05 — AUDITORIA (bottom center)
+  ════════════════════════════════════════════════ -->
+  <g transform="translate(350, 620)">
+    <rect x="0" y="0" width="300" height="170" rx="14" fill="#091318" stroke="#22D3EE" stroke-width="2"/>
+    <rect x="0" y="0" width="300" height="44" rx="14" fill="#1A3A4A"/>
+    <rect x="0" y="30" width="300" height="14" fill="#1A3A4A"/>
+    <text x="14" y="18" font-size="10" font-weight="700" fill="#22D3EE" letter-spacing="2">BC-05</text>
+    <text x="14" y="33" font-size="13" font-weight="800" fill="#F1F5F9">📊 Auditoria e Melhoria</text>
+
+    <text x="14" y="60" font-size="9" font-weight="700" fill="#22D3EE" letter-spacing="1.5">LINGUAGEM UBÍQUA</text>
+
+    <rect x="10" y="66" width="280" height="22" rx="5" fill="#060E12"/>
+    <text x="16" y="81" font-size="10" font-weight="700" fill="#67E8F9">Log de Consulta</text>
+    <text x="120" y="81" font-size="9" fill="#64748B">registro anonimizado · pergunta + fonte + confiab.</text>
+    <circle cx="275" cy="77" r="4" fill="#22C55E"/>
+
+    <rect x="10" y="92" width="280" height="22" rx="5" fill="#060E12"/>
+    <text x="16" y="107" font-size="10" font-weight="700" fill="#67E8F9">Gap Recorrente</text>
+    <text x="115" y="107" font-size="9" fill="#64748B">categoria sem resposta → sinaliza novo doc necessário</text>
+    <circle cx="275" cy="103" r="4" fill="#F59E0B"/>
+
+    <rect x="10" y="118" width="280" height="22" rx="5" fill="#060E12"/>
+    <text x="16" y="133" font-size="10" font-weight="700" fill="#67E8F9">Feedback de Qualidade</text>
+    <text x="178" y="133" font-size="9" fill="#64748B">útil / não útil · base para melhoria</text>
+    <circle cx="275" cy="129" r="4" fill="#22C55E"/>
+
+    <rect x="10" y="144" width="280" height="7" rx="3" fill="#1A0D0D" stroke="#3A1A1A" stroke-width="0.5"/>
+    <text x="16" y="150" font-size="8" fill="#EF4444">⚠ ausência de requisito formal de observabilidade no escopo do projeto</text>
+  </g>
+
+  <!-- ═══════════════════════════════════════════════
+       RELATION ARROWS
+  ════════════════════════════════════════════════ -->
+
+  <!-- BC-01 → BC-02: chunks + metadados (vertical left) -->
+  <path d="M 430 340 L 430 370 L 182 370 L 182 390" stroke="#4A90D9" stroke-width="1.5" stroke-dasharray="5 3" fill="none" marker-end="url(#arr-blue)"/>
+  <rect x="240" y="358" width="120" height="15" rx="4" fill="#0A1525"/>
+  <text x="300" y="369" text-anchor="middle" font-size="9" fill="#4A90D9">chunks + metadados</text>
+
+  <!-- BC-01 → BC-04: PROC-042 vigente (vertical right) -->
+  <path d="M 570 340 L 570 380 L 840 380 L 840 430" stroke="#F97316" stroke-width="1.5" stroke-dasharray="5 3" fill="none" marker-end="url(#arr-orange)"/>
+  <rect x="655" y="368" width="110" height="15" rx="4" fill="#150500"/>
+  <text x="710" y="379" text-anchor="middle" font-size="9" fill="#F97316">PROC-042 vigente</text>
+
+  <!-- BC-02 → BC-03: consulta SLA (horizontal top) -->
+  <path d="M 332 430 L 660 430 L 660 255 L 768 255" stroke="#A855F7" stroke-width="1.5" stroke-dasharray="5 3" fill="none" marker-end="url(#arr-purple)"/>
+  <rect x="660" y="243" width="88" height="15" rx="4" fill="#13091F"/>
+  <text x="704" y="254" text-anchor="middle" font-size="9" fill="#A855F7">consulta SLA</text>
+
+  <!-- BC-02 → BC-04: aciona cálculo (horizontal mid) -->
+  <path d="M 332 520 L 700 520 L 700 565 L 768 565" stroke="#F97316" stroke-width="1.5" stroke-dasharray="5 3" fill="none" marker-end="url(#arr-orange)"/>
+  <rect x="686" y="548" width="96" height="15" rx="4" fill="#150500"/>
+  <text x="734" y="559" text-anchor="middle" font-size="9" fill="#F97316">aciona cálculo</text>
+
+  <!-- BC-02 → BC-05: logs de uso (vertical down) -->
+  <path d="M 182 640 L 182 660 L 350 660 L 350 680" stroke="#22D3EE" stroke-width="1.5" stroke-dasharray="5 3" fill="none" marker-end="url(#arr-cyan)"/>
+  <rect x="200" y="648" width="76" height="15" rx="4" fill="#060E12"/>
+  <text x="238" y="659" text-anchor="middle" font-size="9" fill="#22D3EE">logs de uso</text>
+
+  <!-- BC-03 → BC-05: dúvidas tier -->
+  <path d="M 918 380 L 918 405 L 720 405 L 720 750 L 650 750" stroke="#22D3EE" stroke-width="1.5" stroke-dasharray="5 3" fill="none" marker-end="url(#arr-cyan)"/>
+  <rect x="636" y="738" width="82" height="15" rx="4" fill="#060E12"/>
+  <text x="677" y="749" text-anchor="middle" font-size="9" fill="#22D3EE">dúvidas de tier</text>
+
+  <!-- BC-04 → BC-05: gaps de frete -->
+  <path d="M 840 700 L 730 700 L 730 770 L 650 770" stroke="#22D3EE" stroke-width="1.5" stroke-dasharray="5 3" fill="none" marker-end="url(#arr-cyan)"/>
+  <rect x="660" y="758" width="78" height="15" rx="4" fill="#060E12"/>
+  <text x="699" y="769" text-anchor="middle" font-size="9" fill="#22D3EE">gaps de frete</text>
+
+  <!-- BC-05 → BC-01: retroalimenta gaps (up) -->
+  <path d="M 390 620 L 390 590 L 290 590 L 290 150 L 350 150" stroke="#4A90D9" stroke-width="1.5" stroke-dasharray="5 3" fill="none" marker-end="url(#arr-blue)"/>
+  <rect x="222" y="355" width="110" height="15" rx="4" fill="#0A1525"/>
+  <text x="277" y="366" text-anchor="middle" font-size="9" fill="#4A90D9">retroalimenta gaps</text>
+
+  <!-- ═══════════════════════════════════════════════
+       FORA DO ESCOPO — paineis laterais compactos
+  ════════════════════════════════════════════════ -->
+
+  <!-- Fora: BC-02 label -->
+  <text x="38" y="386" font-size="9" font-weight="700" fill="#475569" letter-spacing="1">MISSÃO BC-02</text>
+  <rect x="32" y="370" width="300" height="18" rx="4" fill="#0D1E17" opacity="0.6"/>
+  <text x="38" y="383" font-size="9" fill="#64748B">Receber pergunta · recuperar info · resposta fundamentada ou escalar</text>
+
+  <!-- Footer note -->
+  <rect x="32" y="795" width="1036" height="18" rx="4" fill="#13182A"/>
+  <text x="42" y="807" font-size="9" fill="#475569">Fonte: Anexo A — POL-001 v3.1 · PROC-042 v2 · SLA-2024 · FAQ-Atendimento (informal) · Análise: DB1 · 🔴 Risco Alto  🟡 Risco Médio  🟢 Risco Baixo</text>
+
+</svg>

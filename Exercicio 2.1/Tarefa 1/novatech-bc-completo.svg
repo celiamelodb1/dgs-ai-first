@@ -1,0 +1,505 @@
+<svg viewBox="0 0 1500 1260" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+
+  <!-- ══════════════════════════════════════════
+       BACKGROUND
+  ══════════════════════════════════════════ -->
+  <rect width="1500" height="1260" fill="#0B0E17"/>
+
+  <!-- ══════════════════════════════════════════
+       HEADER
+  ══════════════════════════════════════════ -->
+  <rect width="1500" height="70" fill="#111827"/>
+  <rect y="68" width="1500" height="2" fill="#1E2D45"/>
+  <text x="36" y="26" font-size="10" font-weight="700" fill="#4B6A8A" letter-spacing="3">NOVATECH · ASSISTENTE DE IA · DB1</text>
+  <text x="36" y="52" font-size="22" font-weight="800" fill="#F1F5F9" letter-spacing="-0.5">Mapa de Bounded Contexts</text>
+  <text x="420" y="52" font-size="13" fill="#64748B">com Linguagem Ubíqua e Escopo · Fonte: Anexo A</text>
+
+  <!-- ══════════════════════════════════════════
+       LEGENDA (top-right)
+  ══════════════════════════════════════════ -->
+  <g transform="translate(860, 18)">
+    <!-- risk -->
+    <text x="0" y="12" font-size="9" font-weight="700" fill="#64748B" letter-spacing="2">RISCO DO TERMO</text>
+    <circle cx="8"   cy="26" r="5" fill="#EF4444"/>
+    <text x="17" y="30" font-size="10" fill="#94A3B8">Alto</text>
+    <circle cx="62"  cy="26" r="5" fill="#F59E0B"/>
+    <text x="71" y="30" font-size="10" fill="#94A3B8">Médio</text>
+    <circle cx="122" cy="26" r="5" fill="#22C55E"/>
+    <text x="131" y="30" font-size="10" fill="#94A3B8">Baixo</text>
+    <!-- scope -->
+    <text x="195" y="12" font-size="9" font-weight="700" fill="#64748B" letter-spacing="2">ESCOPO</text>
+    <rect x="195" y="19" width="10" height="10" rx="2" fill="#0D1B12" stroke="#22C55E" stroke-width="1.2"/>
+    <text x="209" y="29" font-size="10" fill="#94A3B8">Dentro</text>
+    <rect x="264" y="19" width="10" height="10" rx="2" fill="#1A0D0D" stroke="#EF4444" stroke-width="1.2"/>
+    <text x="278" y="29" font-size="10" fill="#94A3B8">Fora</text>
+    <!-- arrows -->
+    <text x="330" y="12" font-size="9" font-weight="700" fill="#64748B" letter-spacing="2">RELAÇÕES</text>
+    <line x1="330" y1="26" x2="380" y2="26" stroke="#4A90D9" stroke-width="1.5" stroke-dasharray="4 2" marker-end="url(#arr-blue)"/>
+    <text x="386" y="30" font-size="10" fill="#94A3B8">fluxo entre contextos</text>
+  </g>
+
+  <!-- ══════════════════════════════════════════
+       ARROW MARKERS
+  ══════════════════════════════════════════ -->
+  <defs>
+    <marker id="arr-blue"   markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3z" fill="#4A90D9"/></marker>
+    <marker id="arr-green"  markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3z" fill="#3DBE7A"/></marker>
+    <marker id="arr-purple" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3z" fill="#A855F7"/></marker>
+    <marker id="arr-orange" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3z" fill="#F97316"/></marker>
+    <marker id="arr-cyan"   markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3z" fill="#22D3EE"/></marker>
+  </defs>
+
+  <!-- ══════════════════════════════════════════════════════════
+       HELPER MACROS — cada BC tem:
+         - box container
+         - header strip
+         - seção LINGUAGEM UBÍQUA (termos + círculo de risco)
+         - seção DENTRO DO ESCOPO
+         - seção FORA DO ESCOPO
+         - alerta de risco no rodapé
+  ══════════════════════════════════════════════════════════ -->
+
+  <!-- ╔══════════════════════════════════════════╗
+       ║  BC-01  GESTÃO DO CONHECIMENTO           ║
+       ║  posição: top-center  x=540 y=90         ║
+       ╚══════════════════════════════════════════╝ -->
+  <g transform="translate(540,90)">
+    <rect width="400" height="520" rx="14" fill="#09162A" stroke="#4A90D9" stroke-width="2"/>
+    <!-- header -->
+    <rect width="400" height="46" rx="14" fill="#1E3A5F"/>
+    <rect y="32" width="400" height="14" fill="#1E3A5F"/>
+    <text x="14" y="19" font-size="10" font-weight="700" fill="#4A90D9" letter-spacing="2">BC-01</text>
+    <text x="14" y="36" font-size="13" font-weight="800" fill="#F1F5F9">📚 Gestão do Conhecimento</text>
+    <text x="14" y="55" font-size="10" fill="#94A3B8">Única fonte de verdade sobre documentos vigentes e confiabilidade.</text>
+
+    <!-- LINGUAGEM UBÍQUA -->
+    <text x="14" y="76" font-size="9" font-weight="700" fill="#4A90D9" letter-spacing="2">LINGUAGEM UBÍQUA</text>
+    <!-- rows -->
+    <rect x="8" y="82"  width="384" height="21" rx="4" fill="#05111F"/>
+    <text x="14" y="96"  font-size="10" font-weight="700" fill="#60A5FA">Documento Normativo</text>
+    <text x="174" y="96" font-size="9" fill="#64748B">Regra obrigatória. Prefixo POL ou PROC.</text>
+    <circle cx="383" cy="92" r="4" fill="#22C55E"/>
+
+    <rect x="8" y="107" width="384" height="21" rx="4" fill="#05111F"/>
+    <text x="14" y="121" font-size="10" font-weight="700" fill="#60A5FA">Documento Contratual</text>
+    <text x="175" y="121" font-size="9" fill="#64748B">Compromisso formal c/ cliente. Prefixo SLA.</text>
+    <circle cx="383" cy="117" r="4" fill="#F59E0B"/>
+
+    <rect x="8" y="132" width="384" height="21" rx="4" fill="#05111F"/>
+    <text x="14" y="146" font-size="10" font-weight="700" fill="#60A5FA">Documento Informal</text>
+    <text x="163" y="146" font-size="9" fill="#64748B">Sem responsável/validação. Ex: FAQ. Uso com ressalva.</text>
+    <circle cx="383" cy="142" r="4" fill="#EF4444"/>
+
+    <rect x="8" y="157" width="384" height="21" rx="4" fill="#05111F"/>
+    <text x="14" y="171" font-size="10" font-weight="700" fill="#60A5FA">Versão Vigente</text>
+    <text x="112" y="171" font-size="9" fill="#64748B">PROC-042 v2 para chamados pós 01/12/2023. V1 não arquivada.</text>
+    <circle cx="383" cy="167" r="4" fill="#EF4444"/>
+
+    <rect x="8" y="182" width="384" height="21" rx="4" fill="#05111F"/>
+    <text x="14" y="196" font-size="10" font-weight="700" fill="#60A5FA">Gap Documental</text>
+    <text x="116" y="196" font-size="9" fill="#64748B">Ausência de fonte normativa para um tema relevante.</text>
+    <circle cx="383" cy="192" r="4" fill="#EF4444"/>
+
+    <!-- DENTRO DO ESCOPO -->
+    <text x="14" y="220" font-size="9" font-weight="700" fill="#22C55E" letter-spacing="2">✅  DENTRO DO ESCOPO</text>
+    <rect x="8" y="225" width="384" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="237" font-size="9" fill="#86EFAC">▸ Catálogo de documentos com versão, status e responsável</text>
+    <rect x="8" y="245" width="384" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="257" font-size="9" fill="#86EFAC">▸ Classificação normativo / contratual / informal</text>
+    <rect x="8" y="265" width="384" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="277" font-size="9" fill="#86EFAC">▸ Controle de versões e resolução de conflitos entre documentos</text>
+    <rect x="8" y="285" width="384" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="297" font-size="9" fill="#86EFAC">▸ Pipeline de ingestão, re-ingestão e invalidação de chunks</text>
+    <rect x="8" y="305" width="384" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="317" font-size="9" fill="#86EFAC">▸ Metadados de fonte para citação nas respostas</text>
+    <rect x="8" y="325" width="384" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="337" font-size="9" fill="#86EFAC">▸ Regra de precedência entre documentos conflitantes</text>
+
+    <!-- FORA DO ESCOPO -->
+    <text x="14" y="362" font-size="9" font-weight="700" fill="#EF4444" letter-spacing="2">🚫  FORA DO ESCOPO</text>
+    <rect x="8" y="367" width="384" height="16" rx="4" fill="#180A0A" stroke="#3A1A1A" stroke-width="0.8"/>
+    <text x="16" y="379" font-size="9" fill="#FCA5A5">✕ Criação ou edição de documentos (responsabilidade das áreas)</text>
+    <rect x="8" y="387" width="384" height="16" rx="4" fill="#180A0A" stroke="#3A1A1A" stroke-width="0.8"/>
+    <text x="16" y="399" font-size="9" fill="#FCA5A5">✕ Aprovação de políticas (Compliance / Operações)</text>
+    <rect x="8" y="407" width="384" height="16" rx="4" fill="#180A0A" stroke="#3A1A1A" stroke-width="0.8"/>
+    <text x="16" y="419" font-size="9" fill="#FCA5A5">✕ Execução dos processos descritos nos documentos</text>
+
+    <!-- ALERTA -->
+    <rect x="8" y="435" width="384" height="32" rx="6" fill="#1A0D0D" stroke="#3A1A1A" stroke-width="1"/>
+    <text x="14" y="448" font-size="8" font-weight="700" fill="#EF4444">⚠  RISCO CRÍTICO</text>
+    <text x="14" y="461" font-size="8" fill="#FCA5A5">PROC-042 v1 e v2 coexistem sem hierarquia formal — bloqueante de implementação.</text>
+    <!-- relações -->
+    <text x="14" y="490" font-size="9" font-weight="700" fill="#4A90D9" letter-spacing="1.5">RELAÇÕES</text>
+    <text x="14" y="504" font-size="9" fill="#64748B">➡ Fornece chunks + metadados → BC-02</text>
+    <text x="220" y="504" font-size="9" fill="#64748B">➡ Fornece PROC-042 vigente → BC-04</text>
+    <text x="14" y="517" font-size="9" fill="#64748B">⬅ Recebe sinal de gap ← BC-05</text>
+  </g>
+
+  <!-- ╔══════════════════════════════════════════╗
+       ║  BC-02  ATENDIMENTO E CONSULTA           ║
+       ║  posição: mid-left  x=36 y=660           ║
+       ╚══════════════════════════════════════════╝ -->
+  <g transform="translate(36,660)">
+    <rect width="420" height="560" rx="14" fill="#09180F" stroke="#3DBE7A" stroke-width="2"/>
+    <rect width="420" height="46" rx="14" fill="#1A4731"/>
+    <rect y="32" width="420" height="14" fill="#1A4731"/>
+    <text x="14" y="19" font-size="10" font-weight="700" fill="#3DBE7A" letter-spacing="2">BC-02</text>
+    <text x="14" y="36" font-size="13" font-weight="800" fill="#F1F5F9">💬 Atendimento e Consulta</text>
+    <text x="14" y="55" font-size="10" fill="#94A3B8">Receber pergunta, recuperar info e devolver resposta fundamentada ou escalar.</text>
+
+    <text x="14" y="76" font-size="9" font-weight="700" fill="#3DBE7A" letter-spacing="2">LINGUAGEM UBÍQUA</text>
+
+    <rect x="8" y="82"  width="404" height="21" rx="4" fill="#050F09"/>
+    <text x="14" y="96"  font-size="10" font-weight="700" fill="#4ADE80">Resposta Fundamentada</text>
+    <text x="186" y="96" font-size="9" fill="#64748B">Com citação de fonte, versão e seção. Confiabilidade alta.</text>
+    <circle cx="403" cy="92" r="4" fill="#22C55E"/>
+
+    <rect x="8" y="107" width="404" height="21" rx="4" fill="#050F09"/>
+    <text x="14" y="121" font-size="10" font-weight="700" fill="#4ADE80">Resposta com Ressalva</text>
+    <text x="183" y="121" font-size="9" fill="#64748B">Baseada em doc informal (FAQ). Fonte explicitada.</text>
+    <circle cx="403" cy="117" r="4" fill="#F59E0B"/>
+
+    <rect x="8" y="132" width="404" height="21" rx="4" fill="#050F09"/>
+    <text x="14" y="146" font-size="10" font-weight="700" fill="#4ADE80">Contradição Detectada</text>
+    <text x="183" y="146" font-size="9" fill="#64748B">Chunks conflitantes recuperados. Aciona escalada ao supervisor.</text>
+    <circle cx="403" cy="142" r="4" fill="#EF4444"/>
+
+    <rect x="8" y="157" width="404" height="21" rx="4" fill="#050F09"/>
+    <text x="14" y="171" font-size="10" font-weight="700" fill="#4ADE80">Escalada</text>
+    <text x="72" y="171" font-size="9" fill="#64748B">Encaminhamento ao supervisor quando resposta não é confiável.</text>
+    <circle cx="403" cy="167" r="4" fill="#F59E0B"/>
+
+    <rect x="8" y="182" width="404" height="21" rx="4" fill="#050F09"/>
+    <text x="14" y="196" font-size="10" font-weight="700" fill="#4ADE80">Gap Documental</text>
+    <text x="116" y="196" font-size="9" fill="#64748B">"Não encontrado na documentação oficial" + encaminhamento.</text>
+    <circle cx="403" cy="192" r="4" fill="#EF4444"/>
+
+    <rect x="8" y="207" width="404" height="21" rx="4" fill="#050F09"/>
+    <text x="14" y="221" font-size="10" font-weight="700" fill="#4ADE80">CT-e</text>
+    <text x="42" y="221" font-size="9" fill="#64748B">Conhecimento de Transporte Eletrônico. Identificador principal da operação.</text>
+    <circle cx="403" cy="217" r="4" fill="#22C55E"/>
+
+    <!-- DENTRO -->
+    <text x="14" y="245" font-size="9" font-weight="700" fill="#22C55E" letter-spacing="2">✅  DENTRO DO ESCOPO</text>
+    <rect x="8" y="250" width="404" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="262" font-size="9" fill="#86EFAC">▸ Interpretação de perguntas em linguagem natural</text>
+    <rect x="8" y="270" width="404" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="282" font-size="9" fill="#86EFAC">▸ Recuperação semântica de chunks (RAG)</text>
+    <rect x="8" y="290" width="404" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="302" font-size="9" fill="#86EFAC">▸ Geração de resposta com citação de fonte e versão do documento</text>
+    <rect x="8" y="310" width="404" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="322" font-size="9" fill="#86EFAC">▸ Classificação da confiabilidade da resposta</text>
+    <rect x="8" y="330" width="404" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="342" font-size="9" fill="#86EFAC">▸ Fluxo de fallback: "não encontrado na documentação oficial"</text>
+    <rect x="8" y="350" width="404" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="362" font-size="9" fill="#86EFAC">▸ Fluxo de escalada: "contradição detectada — consulte supervisor"</text>
+    <rect x="8" y="370" width="404" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="382" font-size="9" fill="#86EFAC">▸ Histórico de consultas por sessão</text>
+
+    <!-- FORA -->
+    <text x="14" y="407" font-size="9" font-weight="700" fill="#EF4444" letter-spacing="2">🚫  FORA DO ESCOPO</text>
+    <rect x="8" y="412" width="404" height="16" rx="4" fill="#180A0A" stroke="#3A1A1A" stroke-width="0.8"/>
+    <text x="16" y="424" font-size="9" fill="#FCA5A5">✕ Abertura ou gestão de chamados (Portal do Cliente / Azure DevOps)</text>
+    <rect x="8" y="432" width="404" height="16" rx="4" fill="#180A0A" stroke="#3A1A1A" stroke-width="0.8"/>
+    <text x="16" y="444" font-size="9" fill="#FCA5A5">✕ Cálculo de valores de frete (delega para BC-04)</text>
+    <rect x="8" y="452" width="404" height="16" rx="4" fill="#180A0A" stroke="#3A1A1A" stroke-width="0.8"/>
+    <text x="16" y="464" font-size="9" fill="#FCA5A5">✕ Verificação de SLA em tempo real (delega para BC-03)</text>
+    <rect x="8" y="472" width="404" height="16" rx="4" fill="#180A0A" stroke="#3A1A1A" stroke-width="0.8"/>
+    <text x="16" y="484" font-size="9" fill="#FCA5A5">✕ Edição ou aprovação de documentos</text>
+
+    <!-- ALERTA -->
+    <rect x="8" y="500" width="404" height="32" rx="6" fill="#1A0D0D" stroke="#3A1A1A" stroke-width="1"/>
+    <text x="14" y="513" font-size="8" font-weight="700" fill="#EF4444">⚠  RISCO CRÍTICO</text>
+    <text x="14" y="526" font-size="8" fill="#FCA5A5">Fluxo de fallback e escalada não especificado formalmente. Perguntas de frete padrão sem resposta.</text>
+
+    <!-- relações -->
+    <text x="14" y="548" font-size="9" font-weight="700" fill="#3DBE7A" letter-spacing="1.5">RELAÇÕES</text>
+    <text x="14" y="555" font-size="9" fill="#64748B">⬅ Consome chunks ← BC-01    ➡ Aciona SLA → BC-03    ➡ Aciona frete → BC-04    ➡ Logs → BC-05</text>
+  </g>
+
+  <!-- ╔══════════════════════════════════════════╗
+       ║  BC-03  SLAs E CONTRATOS                 ║
+       ║  posição: mid-right top  x=1044 y=90     ║
+       ╚══════════════════════════════════════════╝ -->
+  <g transform="translate(1044,90)">
+    <rect width="420" height="560" rx="14" fill="#120A20" stroke="#A855F7" stroke-width="2"/>
+    <rect width="420" height="46" rx="14" fill="#4A2060"/>
+    <rect y="32" width="420" height="14" fill="#4A2060"/>
+    <text x="14" y="19" font-size="10" font-weight="700" fill="#A855F7" letter-spacing="2">BC-03</text>
+    <text x="14" y="36" font-size="13" font-weight="800" fill="#F1F5F9">📋 SLAs e Contratos</text>
+    <text x="14" y="55" font-size="10" fill="#94A3B8">Compromissos contratuais de nível de serviço e classificação de clientes.</text>
+
+    <text x="14" y="76" font-size="9" font-weight="700" fill="#A855F7" letter-spacing="2">LINGUAGEM UBÍQUA</text>
+
+    <rect x="8" y="82"  width="404" height="21" rx="4" fill="#0D061A"/>
+    <text x="14" y="96"  font-size="10" font-weight="700" fill="#C084FC">Tier de Cliente</text>
+    <text x="106" y="96" font-size="9" fill="#64748B">Gold / Silver / Standard (critério OU). Platinum não existe.</text>
+    <circle cx="403" cy="92" r="4" fill="#22C55E"/>
+
+    <rect x="8" y="107" width="404" height="21" rx="4" fill="#0D061A"/>
+    <text x="14" y="121" font-size="10" font-weight="700" fill="#C084FC">Incidente Crítico</text>
+    <text x="115" y="121" font-size="9" fill="#64748B">Atende ≥1 de 4 critérios: valor&gt;R$100K/6h, carga perigosa, &gt;5 chamados/24h, risco a pessoas.</text>
+    <circle cx="403" cy="117" r="4" fill="#F59E0B"/>
+
+    <rect x="8" y="132" width="404" height="21" rx="4" fill="#0D061A"/>
+    <text x="14" y="146" font-size="10" font-weight="700" fill="#C084FC">SLA de Primeira Resposta</text>
+    <text x="198" y="146" font-size="9" fill="#64748B">Tempo até 1º retorno ao cliente. Não implica resolução.</text>
+    <circle cx="403" cy="142" r="4" fill="#22C55E"/>
+
+    <rect x="8" y="157" width="404" height="21" rx="4" fill="#0D061A"/>
+    <text x="14" y="171" font-size="10" font-weight="700" fill="#C084FC">SLA de Resolução</text>
+    <text x="131" y="171" font-size="9" fill="#64748B">Tempo até encerramento efetivo do problema.</text>
+    <circle cx="403" cy="167" r="4" fill="#F59E0B"/>
+
+    <rect x="8" y="182" width="404" height="21" rx="4" fill="#0D061A"/>
+    <text x="14" y="196" font-size="10" font-weight="700" fill="#C084FC">Relógio de SLA</text>
+    <text x="113" y="196" font-size="9" fill="#64748B">Pausa fora 08h-18h (chamados gerais). NÃO pausa: Gold + incidente crítico.</text>
+    <circle cx="403" cy="192" r="4" fill="#EF4444"/>
+
+    <rect x="8" y="207" width="404" height="21" rx="4" fill="#0D061A"/>
+    <text x="14" y="221" font-size="10" font-weight="700" fill="#C084FC">Penalidade de SLA</text>
+    <text x="131" y="221" font-size="9" fill="#64748B">1ª: registro. 2ª: crédito 5% do frete do chamado. 3ª+: 10% + reunião.</text>
+    <circle cx="403" cy="217" r="4" fill="#F59E0B"/>
+
+    <!-- DENTRO -->
+    <text x="14" y="245" font-size="9" font-weight="700" fill="#22C55E" letter-spacing="2">✅  DENTRO DO ESCOPO</text>
+    <rect x="8" y="250" width="404" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="262" font-size="9" fill="#86EFAC">▸ Regras de classificação Gold / Silver / Standard</text>
+    <rect x="8" y="270" width="404" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="282" font-size="9" fill="#86EFAC">▸ Tabela de SLAs por tier e tipo de chamado (geral × crítico)</text>
+    <rect x="8" y="290" width="404" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="302" font-size="9" fill="#86EFAC">▸ Definição de Incidente Crítico (4 critérios — basta 1)</text>
+    <rect x="8" y="310" width="404" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="322" font-size="9" fill="#86EFAC">▸ Regras de penalidade por violação (1ª / 2ª / 3ª+ no mês)</text>
+    <rect x="8" y="330" width="404" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="342" font-size="9" fill="#86EFAC">▸ Comportamento do Relógio de SLA (pausa vs 24/7)</text>
+    <rect x="8" y="350" width="404" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="362" font-size="9" fill="#86EFAC">▸ Resposta a "existe tier Platinum?" (não existe)</text>
+
+    <!-- FORA -->
+    <text x="14" y="387" font-size="9" font-weight="700" fill="#EF4444" letter-spacing="2">🚫  FORA DO ESCOPO</text>
+    <rect x="8" y="392" width="404" height="16" rx="4" fill="#180A0A" stroke="#3A1A1A" stroke-width="0.8"/>
+    <text x="16" y="404" font-size="9" fill="#FCA5A5">✕ Medição real de SLA (responsabilidade do Azure DevOps)</text>
+    <rect x="8" y="412" width="404" height="16" rx="4" fill="#180A0A" stroke="#3A1A1A" stroke-width="0.8"/>
+    <text x="16" y="424" font-size="9" fill="#FCA5A5">✕ Consulta ao tier real do cliente (exige integração com CRM/ERP)</text>
+    <rect x="8" y="432" width="404" height="16" rx="4" fill="#180A0A" stroke="#3A1A1A" stroke-width="0.8"/>
+    <text x="16" y="444" font-size="9" fill="#FCA5A5">✕ Negociação de SLA diferenciado (responsabilidade do Comercial)</text>
+    <rect x="8" y="452" width="404" height="16" rx="4" fill="#180A0A" stroke="#3A1A1A" stroke-width="0.8"/>
+    <text x="16" y="464" font-size="9" fill="#FCA5A5">✕ Emissão de créditos por penalidade</text>
+
+    <!-- ALERTA -->
+    <rect x="8" y="480" width="404" height="32" rx="6" fill="#1A150A" stroke="#3A2E0A" stroke-width="1"/>
+    <text x="14" y="493" font-size="8" font-weight="700" fill="#F59E0B">⚠  RISCO MÉDIO</text>
+    <text x="14" y="506" font-size="8" fill="#FDE68A">FAQ usa limiar R$50K para "prioridade alta"; SLA-2024 usa R$100K para incidente crítico — inconsistência.</text>
+
+    <!-- relações -->
+    <text x="14" y="534" font-size="9" font-weight="700" fill="#A855F7" letter-spacing="1.5">RELAÇÕES</text>
+    <text x="14" y="548" font-size="9" fill="#64748B">⬅ Consome SLA-2024 ← BC-01    ➡ Fornece resposta estruturada → BC-02    ➡ Sinaliza gaps → BC-05</text>
+  </g>
+
+  <!-- ╔══════════════════════════════════════════╗
+       ║  BC-04  LOGÍSTICA E FRETE                ║
+       ║  posição: mid-right bottom  x=1044 y=700 ║
+       ╚══════════════════════════════════════════╝ -->
+  <g transform="translate(1044,700)">
+    <rect width="420" height="520" rx="14" fill="#1A0800" stroke="#F97316" stroke-width="2"/>
+    <rect width="420" height="46" rx="14" fill="#7A2D00"/>
+    <rect y="32" width="420" height="14" fill="#7A2D00"/>
+    <text x="14" y="19" font-size="10" font-weight="700" fill="#F97316" letter-spacing="2">BC-04</text>
+    <text x="14" y="36" font-size="13" font-weight="800" fill="#F1F5F9">🚛 Logística e Frete</text>
+    <text x="14" y="55" font-size="10" fill="#94A3B8">Regras de frete, prazos e condições especiais. Orienta o cálculo, não o executa.</text>
+
+    <text x="14" y="76" font-size="9" font-weight="700" fill="#F97316" letter-spacing="2">LINGUAGEM UBÍQUA</text>
+
+    <rect x="8" y="82"  width="404" height="21" rx="4" fill="#110400"/>
+    <text x="14" y="96"  font-size="10" font-weight="700" fill="#FB923C">Frete Especial</text>
+    <text x="104" y="96" font-size="9" fill="#64748B">Acima de 500kg. Fórmula: Valor base × Multiplicador regional × Fator de peso.</text>
+    <circle cx="403" cy="92" r="4" fill="#22C55E"/>
+
+    <rect x="8" y="107" width="404" height="21" rx="4" fill="#110400"/>
+    <text x="14" y="121" font-size="10" font-weight="700" fill="#FB923C">Frete Padrão</text>
+    <text x="96" y="121" font-size="9" fill="#64748B">⚠ Sem definição formal. Inferido: abaixo de 500kg. Gap documental.</text>
+    <circle cx="403" cy="117" r="4" fill="#EF4444"/>
+
+    <rect x="8" y="132" width="404" height="21" rx="4" fill="#110400"/>
+    <text x="14" y="146" font-size="10" font-weight="700" fill="#FB923C">Multiplicador Regional</text>
+    <text x="173" y="146" font-size="9" fill="#64748B">v2 vigente: Sul 1.2 / SE 1.0 / CO 1.4 / NE 1.5 / Norte 1.8.</text>
+    <circle cx="403" cy="142" r="4" fill="#EF4444"/>
+
+    <rect x="8" y="157" width="404" height="21" rx="4" fill="#110400"/>
+    <text x="14" y="171" font-size="10" font-weight="700" fill="#FB923C">Fator de Peso</text>
+    <text x="100" y="171" font-size="9" fill="#64748B">v2: 500-1000kg: 1.0 / 1001-3000kg: 1.15 / acima de 3000kg: 1.4.</text>
+    <circle cx="403" cy="167" r="4" fill="#EF4444"/>
+
+    <rect x="8" y="182" width="404" height="21" rx="4" fill="#110400"/>
+    <text x="14" y="196" font-size="10" font-weight="700" fill="#FB923C">Coleta Reversa</text>
+    <text x="111" y="196" font-size="9" fill="#64748B">Serviço de retirada da mercadoria devolvida. Até 2 dias úteis após aprovação.</text>
+    <circle cx="403" cy="192" r="4" fill="#22C55E"/>
+
+    <rect x="8" y="207" width="404" height="21" rx="4" fill="#110400"/>
+    <text x="14" y="221" font-size="10" font-weight="700" fill="#FB923C">Frete Reverso</text>
+    <text x="100" y="221" font-size="9" fill="#64748B">Custo do transporte de retorno. Não confundir com Coleta Reversa (o serviço).</text>
+    <circle cx="403" cy="217" r="4" fill="#F59E0B"/>
+
+    <!-- DENTRO -->
+    <text x="14" y="245" font-size="9" font-weight="700" fill="#22C55E" letter-spacing="2">✅  DENTRO DO ESCOPO</text>
+    <rect x="8" y="250" width="404" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="262" font-size="9" fill="#86EFAC">▸ Regra de aplicação do Frete Especial (acima de 500kg)</text>
+    <rect x="8" y="270" width="404" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="282" font-size="9" fill="#86EFAC">▸ Multiplicadores regionais vigentes (PROC-042 v2)</text>
+    <rect x="8" y="290" width="404" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="302" font-size="9" fill="#86EFAC">▸ Fatores de peso por faixa + prazo adicional (+3 dias úteis)</text>
+    <rect x="8" y="310" width="404" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="322" font-size="9" fill="#86EFAC">▸ Condições especiais: aprovação gerente para acima de 5.000kg</text>
+    <rect x="8" y="330" width="404" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="342" font-size="9" fill="#86EFAC">▸ Descontos por volume: 8/mês → 5%, 15/mês → 10%, acima → Diretoria</text>
+    <rect x="8" y="350" width="404" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="362" font-size="9" fill="#86EFAC">▸ Encaminhamento para PROC-043 (cargas perigosas acima de 500kg)</text>
+
+    <!-- FORA -->
+    <text x="14" y="387" font-size="9" font-weight="700" fill="#EF4444" letter-spacing="2">🚫  FORA DO ESCOPO</text>
+    <rect x="8" y="392" width="404" height="16" rx="4" fill="#180A0A" stroke="#3A1A1A" stroke-width="0.8"/>
+    <text x="16" y="404" font-size="9" fill="#FCA5A5">✕ Valor base do frete (tabela mensal externa — não ingerível estaticamente)</text>
+    <rect x="8" y="412" width="404" height="16" rx="4" fill="#180A0A" stroke="#3A1A1A" stroke-width="0.8"/>
+    <text x="16" y="424" font-size="9" fill="#FCA5A5">✕ Execução do cálculo com valor final</text>
+    <rect x="8" y="432" width="404" height="16" rx="4" fill="#180A0A" stroke="#3A1A1A" stroke-width="0.8"/>
+    <text x="16" y="444" font-size="9" fill="#FCA5A5">✕ Autorização de exceções para cargas especiais</text>
+    <rect x="8" y="452" width="404" height="16" rx="4" fill="#180A0A" stroke="#3A1A1A" stroke-width="0.8"/>
+    <text x="16" y="464" font-size="9" fill="#FCA5A5">✕ Frete padrão abaixo de 500kg (gap documental — sem fonte)</text>
+
+    <!-- ALERTA -->
+    <rect x="8" y="480" width="404" height="32" rx="6" fill="#1A0D0D" stroke="#3A1A1A" stroke-width="1"/>
+    <text x="14" y="493" font-size="8" font-weight="700" fill="#EF4444">⚠  RISCO CRÍTICO</text>
+    <text x="14" y="506" font-size="8" fill="#FCA5A5">v1 vs v2: Norte 1.6→1.8 (+12,5%) · fator &gt;3000kg: 1.5→1.4 · prazo +2→+3 dias úteis.</text>
+
+    <!-- relações -->
+    <text x="14" y="504" font-size="9" font-weight="700" fill="#F97316" letter-spacing="1.5">RELAÇÕES</text>
+    <text x="14" y="516" font-size="9" fill="#64748B">⬅ Consome PROC-042 v2 ← BC-01    ➡ Orientação de cálculo → BC-02    ➡ Gaps de frete → BC-05</text>
+  </g>
+
+  <!-- ╔══════════════════════════════════════════╗
+       ║  BC-05  AUDITORIA E MELHORIA             ║
+       ║  posição: bottom-center  x=540 y=660     ║
+       ╚══════════════════════════════════════════╝ -->
+  <g transform="translate(540,660)">
+    <rect width="460" height="480" rx="14" fill="#060D12" stroke="#22D3EE" stroke-width="2"/>
+    <rect width="460" height="46" rx="14" fill="#1A3A4A"/>
+    <rect y="32" width="460" height="14" fill="#1A3A4A"/>
+    <text x="14" y="19" font-size="10" font-weight="700" fill="#22D3EE" letter-spacing="2">BC-05</text>
+    <text x="14" y="36" font-size="13" font-weight="800" fill="#F1F5F9">📊 Auditoria e Melhoria Contínua</text>
+    <text x="14" y="55" font-size="10" fill="#94A3B8">Registrar uso, identificar padrões de falha e gaps — retroalimentar BC-01.</text>
+
+    <text x="14" y="76" font-size="9" font-weight="700" fill="#22D3EE" letter-spacing="2">LINGUAGEM UBÍQUA</text>
+
+    <rect x="8" y="82"  width="444" height="21" rx="4" fill="#040A0E"/>
+    <text x="14" y="96"  font-size="10" font-weight="700" fill="#67E8F9">Log de Consulta</text>
+    <text x="123" y="96" font-size="9" fill="#64748B">Registro anonimizado: pergunta + fonte utilizada + confiabilidade da resposta.</text>
+    <circle cx="443" cy="92" r="4" fill="#22C55E"/>
+
+    <rect x="8" y="107" width="444" height="21" rx="4" fill="#040A0E"/>
+    <text x="14" y="121" font-size="10" font-weight="700" fill="#67E8F9">Gap Recorrente</text>
+    <text x="117" y="121" font-size="9" fill="#64748B">Categoria de pergunta sem resposta com frequência → sinaliza necessidade de novo doc.</text>
+    <circle cx="443" cy="117" r="4" fill="#F59E0B"/>
+
+    <rect x="8" y="132" width="444" height="21" rx="4" fill="#040A0E"/>
+    <text x="14" y="146" font-size="10" font-weight="700" fill="#67E8F9">Feedback de Qualidade</text>
+    <text x="170" y="146" font-size="9" fill="#64748B">Avaliação do atendente (útil / não útil). Base para melhoria do modelo.</text>
+    <circle cx="443" cy="142" r="4" fill="#22C55E"/>
+
+    <!-- DENTRO -->
+    <text x="14" y="170" font-size="9" font-weight="700" fill="#22C55E" letter-spacing="2">✅  DENTRO DO ESCOPO</text>
+    <rect x="8" y="175" width="444" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="187" font-size="9" fill="#86EFAC">▸ Log de consultas anonimizadas (pergunta, fonte, confiabilidade)</text>
+    <rect x="8" y="195" width="444" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="207" font-size="9" fill="#86EFAC">▸ Registro de fallbacks por categoria ("não encontrado")</text>
+    <rect x="8" y="215" width="444" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="227" font-size="9" fill="#86EFAC">▸ Registro de escaladas ("contradição detectada")</text>
+    <rect x="8" y="235" width="444" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="247" font-size="9" fill="#86EFAC">▸ Métricas de uso por tipo de pergunta</text>
+    <rect x="8" y="255" width="444" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="267" font-size="9" fill="#86EFAC">▸ Dashboard de gaps documentais recorrentes</text>
+    <rect x="8" y="275" width="444" height="16" rx="4" fill="#0A1B10" stroke="#1A3A22" stroke-width="0.8"/>
+    <text x="16" y="287" font-size="9" fill="#86EFAC">▸ Feedback do atendente sobre qualidade da resposta</text>
+
+    <!-- FORA -->
+    <text x="14" y="312" font-size="9" font-weight="700" fill="#EF4444" letter-spacing="2">🚫  FORA DO ESCOPO</text>
+    <rect x="8" y="317" width="444" height="16" rx="4" fill="#180A0A" stroke="#3A1A1A" stroke-width="0.8"/>
+    <text x="16" y="329" font-size="9" fill="#FCA5A5">✕ Dados de clientes finais (PII — dados pessoais identificáveis)</text>
+    <rect x="8" y="337" width="444" height="16" rx="4" fill="#180A0A" stroke="#3A1A1A" stroke-width="0.8"/>
+    <text x="16" y="349" font-size="9" fill="#FCA5A5">✕ Métricas de performance individual de atendentes</text>
+    <rect x="8" y="357" width="444" height="16" rx="4" fill="#180A0A" stroke="#3A1A1A" stroke-width="0.8"/>
+    <text x="16" y="369" font-size="9" fill="#FCA5A5">✕ Integração com sistemas de RH</text>
+    <rect x="8" y="377" width="444" height="16" rx="4" fill="#180A0A" stroke="#3A1A1A" stroke-width="0.8"/>
+    <text x="16" y="389" font-size="9" fill="#FCA5A5">✕ Tomada de decisão sobre conteúdo documental</text>
+
+    <!-- ALERTA -->
+    <rect x="8" y="405" width="444" height="32" rx="6" fill="#1A0D0D" stroke="#3A1A1A" stroke-width="1"/>
+    <text x="14" y="418" font-size="8" font-weight="700" fill="#EF4444">⚠  RISCO CRÍTICO</text>
+    <text x="14" y="431" font-size="8" fill="#FCA5A5">Ausência de requisito formal de observabilidade no escopo do projeto. Sem BC-05, gaps degradam silenciosamente.</text>
+
+    <!-- relações -->
+    <text x="14" y="460" font-size="9" font-weight="700" fill="#22D3EE" letter-spacing="1.5">RELAÇÕES</text>
+    <text x="14" y="473" font-size="9" fill="#64748B">⬅ Recebe sinais de todos os BCs    ➡ Retroalimenta gaps → BC-01    ➡ Evidências → Gestão do Projeto</text>
+  </g>
+
+  <!-- ══════════════════════════════════════════
+       SETAS DE RELAÇÃO ENTRE BCs
+  ══════════════════════════════════════════ -->
+
+  <!-- BC-01 (540+200=740, 90+520=610 bottom) → BC-02 (36+210=246, 660 top) -->
+  <!-- BC01 bottom-left → BC02 top -->
+  <path d="M 650 610 L 650 640 L 246 640 L 246 660"
+        stroke="#4A90D9" stroke-width="1.8" stroke-dasharray="6 3" fill="none" marker-end="url(#arr-blue)"/>
+  <rect x="380" y="628" width="140" height="16" rx="4" fill="#09162A"/>
+  <text x="450" y="640" text-anchor="middle" font-size="9" fill="#4A90D9">chunks + metadados</text>
+
+  <!-- BC-01 (540+200=740, 90+520=610) → BC-04 (1044+210=1254, 700 top) -->
+  <path d="M 800 610 L 800 650 L 1254 650 L 1254 700"
+        stroke="#F97316" stroke-width="1.8" stroke-dasharray="6 3" fill="none" marker-end="url(#arr-orange)"/>
+  <rect x="966" y="638" width="130" height="16" rx="4" fill="#1A0800"/>
+  <text x="1031" y="650" text-anchor="middle" font-size="9" fill="#F97316">PROC-042 v2 vigente</text>
+
+  <!-- BC-02 (36+420=456, 660+280=940) → BC-03 (1044, 90+280=370) -->
+  <path d="M 456 860 L 520 860 L 520 370 L 1044 370"
+        stroke="#A855F7" stroke-width="1.8" stroke-dasharray="6 3" fill="none" marker-end="url(#arr-purple)"/>
+  <rect x="526" y="358" width="98" height="16" rx="4" fill="#120A20"/>
+  <text x="575" y="370" text-anchor="middle" font-size="9" fill="#A855F7">consulta SLA</text>
+
+  <!-- BC-02 (456, 660+430=1090) → BC-04 (1044, 700+280=980) -->
+  <path d="M 456 1000 L 510 1000 L 510 980 L 1044 980"
+        stroke="#F97316" stroke-width="1.8" stroke-dasharray="6 3" fill="none" marker-end="url(#arr-orange)"/>
+  <rect x="700" y="968" width="112" height="16" rx="4" fill="#1A0800"/>
+  <text x="756" y="980" text-anchor="middle" font-size="9" fill="#F97316">aciona cálculo frete</text>
+
+  <!-- BC-02 (36+420=456, 660+260=920) → BC-05 (540, 660+80=740) -->
+  <path d="M 456 920 L 500 920 L 500 800 L 540 800"
+        stroke="#22D3EE" stroke-width="1.8" stroke-dasharray="6 3" fill="none" marker-end="url(#arr-cyan)"/>
+  <rect x="464" y="850" width="70" height="16" rx="4" fill="#060D12"/>
+  <text x="499" y="862" text-anchor="middle" font-size="9" fill="#22D3EE">logs de uso</text>
+
+  <!-- BC-03 (1044, 90+520=610) → BC-05 (540+460=1000, 660+200=860) -->
+  <path d="M 1044 400 L 1010 400 L 1010 760 L 1000 760"
+        stroke="#22D3EE" stroke-width="1.8" stroke-dasharray="6 3" fill="none" marker-end="url(#arr-cyan)"/>
+  <rect x="1006" y="748" width="80" height="16" rx="4" fill="#060D12"/>
+  <text x="1046" y="760" text-anchor="middle" font-size="9" fill="#22D3EE">gaps de tier</text>
+
+  <!-- BC-04 (1044, 700+300=1000) → BC-05 (540+460=1000, 660+300=960) -->
+  <path d="M 1044 850 L 1020 850 L 1020 920 L 1000 920"
+        stroke="#22D3EE" stroke-width="1.8" stroke-dasharray="6 3" fill="none" marker-end="url(#arr-cyan)"/>
+  <rect x="1004" y="908" width="84" height="16" rx="4" fill="#060D12"/>
+  <text x="1046" y="920" text-anchor="middle" font-size="9" fill="#22D3EE">gaps de frete</text>
+
+  <!-- BC-05 (540, 660+200=860) → BC-01 (540+200=740, 90+520=610) -->
+  <path d="M 540 860 L 490 860 L 490 350 L 540 350"
+        stroke="#4A90D9" stroke-width="1.8" stroke-dasharray="6 3" fill="none" marker-end="url(#arr-blue)"/>
+  <rect x="452" y="590" width="120" height="16" rx="4" fill="#09162A"/>
+  <text x="512" y="602" text-anchor="middle" font-size="9" fill="#4A90D9">retroalimenta gaps</text>
+
+  <!-- ══════════════════════════════════════════
+       RODAPÉ
+  ══════════════════════════════════════════ -->
+  <rect y="1238" width="1500" height="22" fill="#111827"/>
+  <text x="36" y="1253" font-size="9" fill="#475569">
+    Fonte: POL-001 v3.1 · PROC-042 v2 (vigente pós 01/12/2023) · SLA-2024 · FAQ-Atendimento (informal)  ·  Análise: DB1  ·  🔴 Risco Alto  🟡 Risco Médio  🟢 Risco Baixo  ·  ✅ Dentro do Escopo  🚫 Fora do Escopo
+  </text>
+</svg>
