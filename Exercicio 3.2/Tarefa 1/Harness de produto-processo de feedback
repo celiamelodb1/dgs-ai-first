@@ -1,0 +1,89 @@
+
+## Harness de produto — processo de feedback
+
+### O problema que o harness resolve
+
+Sem um processo formal, o feedback do atendente morre em três lugares: no chat do Teams com o colega ao lado, num comentário verbal na reunião de equipe, ou num e-mail para o gestor que nunca vira ação. O harness transforma sinal informal em melhoria rastreável.
+
+---
+
+### Camada 1 — Captura na interface
+
+O atendente precisa conseguir sinalizar um problema **sem sair do fluxo de atendimento**. Três gestos, cada um com semântica diferente:
+
+| Gesto | Quando usar | O que captura automaticamente |
+|---|---|---|
+| Thumbs down | Resposta errada, mas o atendente segue | ID do chamado, pergunta, resposta, fonte citada, confiança declarada, timestamp |
+| Corrigir | Atendente sabe a resposta correta | Tudo acima + texto da correção + fonte que o atendente usou |
+| Escalar | Situação que o assistente não deveria tratar | Tudo acima + motivo da escalação |
+
+O contexto automático é crítico: o atendente não pode ser obrigado a preencher 8 campos. O sistema captura silenciosamente pergunta, resposta, chunk recuperado, fonte, nível de confiança e ID do documento — o atendente só acrescenta o que só ele sabe (a correção ou o motivo).
+
+---
+
+### Camada 2 — Classificação e roteamento automático
+
+Todo feedback entra no classificador antes de qualquer humano tocá-lo. A classificação determina **qual ação corretiva é pertinente**, não apenas se o feedback é válido.
+
+```
+tipo_erro = classificar(feedback)
+
+if tipo_erro == "encaminhamento_generico":
+    → ajuste de prompt (P1)
+
+elif tipo_erro == "alucinacao" or tipo_erro == "gap_documental":
+    → escalonamento humano (área responsável) + bloqueio de confiança Alta
+
+elif tipo_erro == "fonte_nao_confiavel":
+    → ajuste de metadado de confiabilidade no pipeline
+
+elif tipo_erro == "informacao_incompleta":
+    → revisão de chunking + ajuste de prompt (P1)
+
+elif tipo_erro == "conflito_de_versao":
+    → triagem com área dona do documento
+```
+
+O classificador pode ser um LLM com few-shot examples — os próprios 6 casos avaliados nesta conversa servem como seed do golden set de classificação.
+
+---
+
+### Camada 3 — Ações corretivas e seus gatilhos
+
+Cada tipo de problema tem uma ação específica. A tabela abaixo é o coração do harness:
+
+| Tipo de erro | Ação corretiva | Responsável | SLA de execução |
+|---|---|---|---|
+| Encaminhamento genérico | Ajuste de prompt — adiciona regra de destinatário documentado | Engenharia | 2 dias úteis |
+| Informação incompleta | Revisão de chunking + ajuste de prompt de completude | Engenharia | 3 dias úteis |
+| Fonte não confiável (FAQ) | Atualizar metadado de confiabilidade no pipeline de ingestão | Engenharia | 1 dia útil |
+| Gap documental | Escalonamento para área responsável pela formalização + catálogo de gaps | Área responsável + Engenharia | 5 dias úteis |
+| Conflito de versão | Notificar área dona do documento para deprecar versão obsoleta | Área responsável | 10 dias úteis |
+| Alucinação confirmada | Ajuste de prompt crítico + bloqueio de Confiança Alta para o tema | Engenharia | Imediato (P0) |
+
+**Regra de ouro:** nenhuma ação no pipeline de produção sem passar pela Camada 4. Ajuste de prompt direto em produção é o equivalente de commit na main sem PR.
+
+---
+
+### Camada 4 — Validação antes do deploy
+
+Toda mudança — seja um ajuste de 3 linhas no prompt ou a reindexação de um documento — precisa passar pelo mesmo gate:
+
+**Golden set:** conjunto fixo de perguntas com resposta esperada, cobrindo os cenários críticos identificados. Para a NovaTech, o ponto de partida são os 6 casos avaliados nesta conversa, expandidos para ~30 casos cobrindo todos os documentos da base.
+
+**Avaliador automático:** LLM-as-judge que compara a resposta do assistente com a resposta esperada do golden set e atribui pass/fail por critério (conteúdo correto, fonte correta, confiança adequada, encaminhamento correto). Nenhum deploy sem 100% de pass nos casos críticos (P0).
+
+**Deploy canário:** a mudança vai primeiro para 10–20% dos atendentes. Métricas monitoradas por 48h: taxa de feedback negativo, distribuição de confiança declarada, taxa de escalação. Se estável, rollout completo.
+
+---
+
+### O loop de melhoria contínua
+
+O harness não é um funil — é um ciclo. O monitoramento pós-deploy alimenta o classificador com novos exemplos, que refinam as regras de roteamento, que geram melhores ações corretivas. A cada sprint:
+
+1. Revisar feedbacks da semana — há padrão novo não coberto pelo classificador?
+2. Atualizar o golden set com casos reais que chegaram via feedback
+3. Verificar o catálogo de gaps — alguma área formalizou um documento novo?
+4. Medir a taxa de feedback negativo por tipo de pergunta — redução confirma que os ajustes funcionaram
+
+O indicador mais simples de saúde do harness: **a taxa de feedback negativo deve cair a cada sprint**. Se está estagnada, o problema está na Camada 3 (a ação corretiva certa não está sendo executada). Se está subindo, o problema pode ser volume crescente de perguntas fora do escopo da base.
